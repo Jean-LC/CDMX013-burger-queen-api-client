@@ -9,18 +9,18 @@ import { useState } from "react";
 
 function Login() {
   //Falta la condicional para cuando se pueda autenticar.
-  const [modalHelp, setModalHelp] = useState('false');
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const adminPage = () => {
     navigate('/admin')
   }
-  const handleModalHelp = () => {
-    if (modalHelp === false) {
-      setModalHelp('true');
-      const modal = <ModalHelp />
-      modal.showModal()
-    }
-  }
+  // const handleModalHelp = () => {
+  //   if (modalHelp === false) {
+  //     setModalHelp('true');
+  //     const modal = <ModalHelp />
+  //     modal.showModal()
+  //   }
+  // }
   return (
     <div className='grid'>
       <header className="header-login">
@@ -34,7 +34,8 @@ function Login() {
         <button className='btn-login' onClick={adminPage}>Login</button>
       </body>
       <footer className="footer-login">
-        <img src={help} className='help' alt='help' onClick={handleModalHelp} />
+        <img src={help} className='help' alt='help' onClick={() => setShow(true)} />
+        <ModalHelp onClose={() => setShow(false)} show={show}/>
       </footer>
     </div>
   );
