@@ -1,0 +1,7 @@
+.grid {
+    background-color: #313133;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(8,1fr);
+  }
