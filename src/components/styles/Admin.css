@@ -1,0 +1,25 @@
+.admin-header{
+    grid-column: span 4;
+    grid-row: span 1;
+}
+.nav-bar-admin{
+    grid-column: span 4;
+    grid-row: span 1;
+}
+.body-admin{
+    grid-column: span 4;
+    grid-row: span 6;
+}
+.create-user{
+    position: absolute;
+    left: 38%;
+    top: 33%;
+    width: 22vw;
+    height: 4vh;
+    font-size: 24px;
+    border-width: 5px;
+    border-radius: 4px;
+    background-color: #399d5a75;
+    color: #f6f6f6;
+    border: #399D5A 5px solid;
+}

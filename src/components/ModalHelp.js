@@ -1,4 +1,4 @@
-import './ModalHelp.css';
+import './styles/ModalHelp.css';
 import logoModal from '../images/texto-suchito.png';
 
 function ModalHelp({ show, onClose }) {
