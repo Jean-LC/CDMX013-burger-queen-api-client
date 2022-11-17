@@ -1,0 +1,26 @@
+.navbar-admin{
+    color: black;
+
+}
+
+.navbar-admin-content{
+    margin: 10% 0 0 0;
+    background-color: #a3bbf983;    
+    display: flex;
+    justify-content: space-around;
+}
+
+.user-management, .product-management{
+    width: 41.51vw;
+    height: 8vh;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    color: #f6f6f6
+}
+
+/* .user-management, .product-management ::placeholder{
+    background-color: #A3BCF9;
+    color: black;
+    border-bottom: solid white; 
+} */

@@ -1,5 +1,5 @@
-import './Login.css';
-import './grid.css';
+import './styles/Login.css';
+import './styles/grid.css';
 import ModalHelp from './ModalHelp';
 import logo from '../images/suchi-texto.png';
 import help from '../images/help.png';
@@ -14,13 +14,6 @@ function Login() {
   const adminPage = () => {
     navigate('/admin')
   }
-  // const handleModalHelp = () => {
-  //   if (modalHelp === false) {
-  //     setModalHelp('true');
-  //     const modal = <ModalHelp />
-  //     modal.showModal()
-  //   }
-  // }
   return (
     <div className='grid'>
       <header className="header-login">
@@ -28,7 +21,7 @@ function Login() {
       </header>
       <body className="body-login">
         <div className='inputs-login-div'>
-          <input className='userId, inputs-login' placeholder='User ID'></input>
+          <input className='userId, inputs-login' placeholder='User Name'></input>
           <input className='password, inputs-login' placeholder='Password' type='password'></input>
         </div>
         <button className='btn-login' onClick={adminPage}>Login</button>
