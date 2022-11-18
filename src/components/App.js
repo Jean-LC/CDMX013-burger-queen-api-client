@@ -4,8 +4,8 @@ import {
   Route
 } from "react-router-dom";
 import React from "react";
-import Login from "./components/Login.js";
-import Admin from "./components/Admin.js";
+import Login from "./Login.js";
+import Admin from "./Admin.js";
 
 
 export default function App() {

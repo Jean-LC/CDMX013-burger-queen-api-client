@@ -43,7 +43,7 @@
 }
 
 .btn-login{
-  width: 18.54vw;
+    width: 18.54vw;
     height: 4vh;
     font-size: 24px;
     border-width: 5px;
@@ -51,6 +51,8 @@
     background-color: #399d5a75;
     color: #f6f6f6;
     border: #399D5A 5px solid;
+    margin-left: 7.5rem;
+    margin-top: 3rem;
 }
 
 .footer-login{
@@ -60,4 +62,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.paragraph-error{
+  color: #EC928F;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bolder;
 }
