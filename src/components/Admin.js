@@ -3,7 +3,7 @@ import './styles/Admin.css'
 import HeaderGeneral from "./HeaderGeneral.js";
 import NavbarAdmin from "./NavbarAdmin.js";
 
-const Admin = ({ userName }) => {
+const Admin = () => {
     return (
         <div className="grid">
             <header className='admin-header'>
@@ -12,9 +12,9 @@ const Admin = ({ userName }) => {
                 <div className='nav-bar-admin'>
                 <NavbarAdmin />
                 </div>
-            <body className='body-admin'>
+            <section className='body-admin'>
                 <button className="create-user">Create user</button>
-            </body>
+            </section>
         </div>
     );
 }
