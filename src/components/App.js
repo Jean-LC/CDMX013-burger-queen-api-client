@@ -4,7 +4,7 @@ import {
   Route
 } from "react-router-dom";
 import React from "react";
-import Login from "./Login.js";
+import { Login } from "./Login.js";
 import Admin from "./Admin.js";
 
 
