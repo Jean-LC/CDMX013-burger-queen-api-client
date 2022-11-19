@@ -1,0 +1,46 @@
+.modal-user{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: red;
+}
+
+.modal-user-body{
+    padding: 10px;
+    color: #ffff;
+    font-size: 30px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.modal-user-content{
+    width: 500px;
+    background-color: #313133;
+}
+
+
+
+.cancel-user, .accept-user{
+    width: 18.54vw;
+    height: 4vh;
+    font-size: 24px;
+    border-width: 5px;
+    border-radius: 4px;
+    background-color: #ec928f75;
+    color: #f6f6f6;
+    border: #EC928F 5px solid;
+}
+
+.modal-user-inputs{
+    display: flex;
+    flex-flow: column;
+}
