@@ -7,8 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
+export let userLogged = {};
 
-function Login() {
+export function Login() {
   const [show, setShow] = useState(false);
   const [values, setValues] = useState({
     email: '',
@@ -18,8 +19,6 @@ function Login() {
 
   const navigate = useNavigate();
 
-  let userLogged = [];
-
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     await axios.post('http://localhost:8080/login', {
@@ -27,11 +26,11 @@ function Login() {
       password: values.password
     })
       .then((response) => {
-        userLogged.push(response.data);
+        userLogged = response.data
       })
       .catch((error) => setErrorMessage(error.response.data));
 
-    if (userLogged.map((res) => res.user.role === "admin")[0] === true) {
+    if ((userLogged.user.role === "admin") === true) {
       navigate('/admin')
     }
   }
@@ -58,5 +57,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
