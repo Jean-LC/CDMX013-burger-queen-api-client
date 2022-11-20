@@ -1,4 +1,4 @@
-.modal-user{
+.modal-user {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -11,7 +11,7 @@
     border: red;
 }
 
-.modal-user-body{
+.modal-user-body {
     padding: 10px;
     color: #ffff;
     font-size: 30px;
@@ -22,14 +22,21 @@
     text-align: center;
 }
 
-.modal-user-content{
-    width: 500px;
+.modal-user-content {
+    width: 100%;
     background-color: #313133;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.buttons-modal {
+    margin-bottom: 2rem;
+}
 
-
-.cancel-user, .accept-user{
+.cancel-user,
+.accept-user {
     width: 18.54vw;
     height: 4vh;
     font-size: 24px;
@@ -38,9 +45,44 @@
     background-color: #ec928f75;
     color: #f6f6f6;
     border: #EC928F 5px solid;
+    margin: 1rem;
 }
 
-.modal-user-inputs{
+.accept-user {
+    background-color: #399D5A50;
+    border: #399d5a 5px solid;
+}
+
+.modal-user-inputs {
     display: flex;
     flex-flow: column;
+    margin: 2rem;
+}
+
+.input-email,
+.input-password {
+    background-color: #F6F6F6;
+    width: 46.59vw;
+    height: 6vh;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 6px;
+    margin: 0 0 5% 0;
+}
+
+.radio-button {
+    margin: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.radio-buttons-div {
+    margin-bottom: 2rem;
+}
+
+.label-inputs {
+    font-size: 26px;
+    color: #fefefe;
+    font-weight: lighter;
+    margin: 1rem;
 }
