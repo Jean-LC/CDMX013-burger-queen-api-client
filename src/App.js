@@ -19,13 +19,13 @@ export default function App() {
         <Route path="/" element={<Login />} /> 
         {/* protected routes */}
         <Route element={<RequireAuth allowedRole={'admin'}/>}>
-        <Route path="admin" element={<Admin />} />
+            <Route path="admin" element={<Admin />} />
         </Route>
         <Route element={<RequireAuth allowedRole={'kitchen'}/>}>
-        <Route path="kitchen" element={<Kitchen />} />
+            <Route path="kitchen" element={<Kitchen />} />
         </Route>
         <Route element={<RequireAuth allowedRole={'dinner'}/>}>
-        <Route path="dinner" element={<Dinner />} />
+            <Route path="dinner" element={<Dinner />} />
         </Route>
         
          {/* catch all */}

@@ -9,7 +9,8 @@ import useAuth from '../hook/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 export function Login() {
-  const {setAuth} = useAuth();
+  
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
   // const location = useLocation();
   // const from = location.state?.from?.path || "/";
@@ -21,8 +22,8 @@ export function Login() {
   })
   const [errorMessage, setErrorMessage] = useState('');
 
-//aquí esta la variable que teníamos afuera.
-/*   let userLogged = {}; */
+  //aquí esta la variable que teníamos afuera.
+  /*   let userLogged = {}; */
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -33,21 +34,24 @@ export function Login() {
       .then((response) => {
         const userLogged = response?.data
         setAuth(userLogged);
-         if ((userLogged.user.role === "admin") === true) {
-            navigate('/admin')
-          } 
-          if ((userLogged.user.role === "kitchen") === true) {
-            navigate('/kitchen');
-          } 
-          if ((userLogged.user.role === "dinner") === true) {
-            navigate('/dinner');
-          } 
+        //¿cómo hago para resetear el formulario cuando regreso a login con las flechas?
+
+        // setValues({
+        //   email: '',
+        //   password: '',
+        // })
+
+        if ((userLogged.user.role === "admin") === true) {
+          navigate('/admin')
+        }
+        if ((userLogged.user.role === "kitchen") === true) {
+          navigate('/kitchen');
+        }
+        if ((userLogged.user.role === "dinner") === true) {
+          navigate('/dinner');
+        }
       })
       .catch((error) => setErrorMessage(error.response.data));
-
-    // if ((userLogged.user.role === "admin") === true) {
-    //   navigate('/admin')
-    // }
   }
 
   return (
@@ -58,8 +62,19 @@ export function Login() {
       <section className='body-login'>
         <form onSubmit={handleLoginSubmit}>
           <div className='inputs-login-div'>
-            <input className='userId, inputs-login' placeholder='Email' type='text' name='email' onChange={(e) => setValues({ ...values, email: e.target.value })}></input>
-            <input className='password, inputs-login' placeholder='Password' type='password' name='password' onChange={(e) => setValues({ ...values, password: e.target.value })}></input>
+            <input className='userId, inputs-login'
+              placeholder='Email'
+              type='text'
+              name='email'
+              autoComplete="off"
+              onChange={(e) => setValues({ ...values, email: e.target.value })}>
+            </input>
+            <input className='password, inputs-login'
+              placeholder='Password'
+              type='password'
+              name='password'
+              onChange={(e) => setValues({ ...values, password: e.target.value })}>
+            </input>
             <p className='paragraph-error'> {errorMessage} </p>
           </div>
           <button className='btn-login' type='submit' >Login</button>
