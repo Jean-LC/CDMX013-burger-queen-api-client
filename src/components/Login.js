@@ -3,13 +3,17 @@ import './styles/grid.css';
 import ModalHelp from './ModalHelp';
 import logo from '../images/suchi-texto.png';
 import help from '../images/help.png';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-
-export let userLogged = {};
+import useAuth from '../hook/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
+  const {setAuth} = useAuth();
+  const navigate = useNavigate();
+  // const location = useLocation();
+  // const from = location.state?.from?.path || "/";
+
   const [show, setShow] = useState(false);
   const [values, setValues] = useState({
     email: '',
@@ -17,7 +21,8 @@ export function Login() {
   })
   const [errorMessage, setErrorMessage] = useState('');
 
-  const navigate = useNavigate();
+//aquí esta la variable que teníamos afuera.
+/*   let userLogged = {}; */
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -26,13 +31,23 @@ export function Login() {
       password: values.password
     })
       .then((response) => {
-        userLogged = response.data
+        const userLogged = response?.data
+        setAuth(userLogged);
+         if ((userLogged.user.role === "admin") === true) {
+            navigate('/admin')
+          } 
+          if ((userLogged.user.role === "kitchen") === true) {
+            navigate('/kitchen');
+          } 
+          if ((userLogged.user.role === "dinner") === true) {
+            navigate('/dinner');
+          } 
       })
       .catch((error) => setErrorMessage(error.response.data));
 
-    if ((userLogged.user.role === "admin") === true) {
-      navigate('/admin')
-    }
+    // if ((userLogged.user.role === "admin") === true) {
+    //   navigate('/admin')
+    // }
   }
 
   return (
