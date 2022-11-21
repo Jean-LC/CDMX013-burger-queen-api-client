@@ -11,17 +11,17 @@ function ModalUser({ show, onClose }) {
                     <input className='input-email' placeholder='Email' type='text' />
                     <input className='input-password' placeholder='Password' type='password' />
                 </div>
-                <div>
+                <div className='radio-buttons-div'>
                     <label className='label-inputs'>
-                    <input type="radio" name="option"/>
+                    <input type="radio" name="option" className='radio-button'/>
                     Kitchen Staff
                     </label>
                     <label className='label-inputs'>
-                    <input type="radio" name="option"/>
+                    <input type="radio" name="option" className='radio-button'/>
                     Dinner Staff
                     </label>
                     <label className='label-inputs'>
-                    <input type="radio" name="option" />
+                    <input type="radio" name="option" className='radio-button'/>
                     Admin
                     </label>
 
