@@ -3,16 +3,17 @@ import './styles/grid.css';
 import './styles/Admin.css'
 import HeaderGeneral from "./HeaderGeneral.js";
 import NavbarAdmin from "./NavbarAdmin.js";
-/* import { userLogged } from './Login.js'; */
+import useAuth from "../hook/useAuth";
 import ModalUser from './ModalUser.js';
 
 const Admin = () => {
 const [show, setShow] = useState(false);
+const { auth } = useAuth();
 // ¿Queremos que la App/admin no aparezca cuando refresquen la pag?
         return (
             <div className="grid">
                 <header className='admin-header'>
-                <HeaderGeneral section={'ADMIN'} email={/* userLogged.user.email */ "mena"}/>
+                <HeaderGeneral section={'ADMIN'} email={auth.user.email}/>
                 </header>
                     <div className='nav-bar-admin'>
                     <NavbarAdmin />
