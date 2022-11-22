@@ -4,7 +4,7 @@ import ModalHelp from './ModalHelp';
 import logo from '../images/suchi-texto.png';
 import help from '../images/help.png';
 import { useState } from 'react';
-import axios from 'axios';
+import { loginUser } from '../services/api.js';
 import useAuth from '../hook/useAuth';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,11 +23,13 @@ export function Login() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/login', {
+
+/*       axios.post('http://localhost:8080/login', {
         email: values.email,
         password: values.password
-      })
-      const userLogged = response?.data
+      }) */
+      const response = await loginUser(values.email, values.password)
+      const userLogged = response.data
       setAuth(userLogged);
 
       if ((userLogged.user.role === "admin") === true) {
@@ -41,7 +43,7 @@ export function Login() {
       }
 
     } catch (err) {
-      setErrorMessage(err.response.data)
+      setErrorMessage(err.response)
 
     }
   }
