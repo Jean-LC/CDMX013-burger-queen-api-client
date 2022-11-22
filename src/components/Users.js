@@ -8,7 +8,6 @@ import deleteImg from '../images/deleteImg.png';
 const Users = () => {
     const { auth } = useAuth();
     const [data, setData] = useState([]);
-    // const [userDelete, setUserDelete] = useState([])}
 
     const readUser = async () => {
         try {
@@ -19,13 +18,18 @@ const Users = () => {
             console.log(err.response.data)
         }
     }
-    const dltUsers = async (userId) => {
+    
+    const hadleDltUsers = async (userId) => {
         try {
-            const dlt = await deleteUsers(userId, auth.accessToken)
-            console.log(setData(data.filter((user) => user.id !== userId)))
+            const dlt = await deleteUsers(userId, auth.accessToken);
+            console.log('dlt', dlt)
+            const newData = data.filter((item) => item.id !== userId)
+
+            console.log("funciona?", newData)
+            setData(newData)
 
         } catch (err) {
-
+            console.log(err)
         }
     }
 
@@ -33,15 +37,11 @@ const Users = () => {
         readUser()
     }, [])
 
-/*      useEffect(() =>{
-        dltUsers(data.id)
-    }, [])  */
-
     return (
         <>
             {data.map((user) => (
                 <div className="div-users" key={user.id}>
-                    <p >{user.role}</p> 
+                    <p >{user.role}</p>
                     <p>{user.email}</p>
                     <img src={edit} className='edit-button'
                         alt='edit-button'>
@@ -50,8 +50,7 @@ const Users = () => {
                         className='delete-image'
                         alt='delete-image'
                         id={user.id}
-                        onClick={() => dltUsers(user.id)}
-                        /* onChange={() => setData(dltUsers)} */
+                        onClick={() => hadleDltUsers(user.id)}
                     >
                     </img>
                 </div>
