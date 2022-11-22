@@ -24,7 +24,6 @@ const { auth } = useAuth();
                     <button className="create-user" onClick={() => setShow(true)}>Create user</button>
                     <ModalUser onClose={() => setShow(false)} show={show}/>
                     <div>
-                        Holis
                         <Users />
                     </div>
                 </section>
