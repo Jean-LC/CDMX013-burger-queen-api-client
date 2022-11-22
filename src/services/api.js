@@ -17,3 +17,15 @@ export const getUsers = (token) => {
         }
     });
 }
+
+export const deleteUsers = (id, token) => {
+    return axios.delete(`${BASE_URL}/users/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+       data: {
+        id: id
+       }
+    })
+}
