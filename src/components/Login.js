@@ -9,10 +9,9 @@ import useAuth from '../hook/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 export function Login() {
-  const {setAuth} = useAuth();
+
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
-  // const location = useLocation();
-  // const from = location.state?.from?.path || "/";
 
   const [show, setShow] = useState(false);
   const [values, setValues] = useState({
@@ -21,33 +20,30 @@ export function Login() {
   })
   const [errorMessage, setErrorMessage] = useState('');
 
-//aquí esta la variable que teníamos afuera.
-/*   let userLogged = {}; */
-
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:8080/login', {
-      email: values.email,
-      password: values.password
-    })
-      .then((response) => {
-        const userLogged = response?.data
-        setAuth(userLogged);
-         if ((userLogged.user.role === "admin") === true) {
-            navigate('/admin')
-          } 
-          if ((userLogged.user.role === "kitchen") === true) {
-            navigate('/kitchen');
-          } 
-          if ((userLogged.user.role === "dinner") === true) {
-            navigate('/dinner');
-          } 
+    try {
+      const response = await axios.post('http://localhost:8080/login', {
+        email: values.email,
+        password: values.password
       })
-      .catch((error) => setErrorMessage(error.response.data));
+      const userLogged = response?.data
+      setAuth(userLogged);
 
-    // if ((userLogged.user.role === "admin") === true) {
-    //   navigate('/admin')
-    // }
+      if ((userLogged.user.role === "admin") === true) {
+        navigate('/admin')
+      }
+      if ((userLogged.user.role === "kitchen") === true) {
+        navigate('/kitchen');
+      }
+      if ((userLogged.user.role === "dinner") === true) {
+        navigate('/dinner');
+      }
+
+    } catch (err) {
+      setErrorMessage(err.response.data)
+
+    }
   }
 
   return (
@@ -58,8 +54,19 @@ export function Login() {
       <section className='body-login'>
         <form onSubmit={handleLoginSubmit}>
           <div className='inputs-login-div'>
-            <input className='userId, inputs-login' placeholder='Email' type='text' name='email' onChange={(e) => setValues({ ...values, email: e.target.value })}></input>
-            <input className='password, inputs-login' placeholder='Password' type='password' name='password' onChange={(e) => setValues({ ...values, password: e.target.value })}></input>
+            <input className='userId, inputs-login'
+              placeholder='Email'
+              type='text'
+              name='email'
+              autoComplete="off"
+              onChange={(e) => setValues({ ...values, email: e.target.value })}>
+            </input>
+            <input className='password, inputs-login'
+              placeholder='Password'
+              type='password'
+              name='password'
+              onChange={(e) => setValues({ ...values, password: e.target.value })}>
+            </input>
             <p className='paragraph-error'> {errorMessage} </p>
           </div>
           <button className='btn-login' type='submit' >Login</button>
