@@ -2,11 +2,11 @@ import axios from "axios";
 
 const BASE_URL = 'http://localhost:8080'
 
-export const loginUser =  (userEmail, userPassword) => {
-    return  axios.post( `${BASE_URL}/login`, {
-    email: userEmail,
-    password: userPassword
-  })
+export const loginUser = (userEmail, userPassword) => {
+    return axios.post(`${BASE_URL}/login`, {
+        email: userEmail,
+        password: userPassword
+    })
 }
 
 export const getUsers = (token) => {
@@ -24,8 +24,12 @@ export const deleteUsers = (id, token) => {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-       data: {
-        id: id
-       }
+        data: {
+            id: id
+        }
     })
+}
+
+export const createUser = (body) => {
+    return axios.post(`${BASE_URL}/users`, body)
 }
