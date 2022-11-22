@@ -9,11 +9,9 @@ import useAuth from '../hook/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 export function Login() {
-  
+
   const { setAuth } = useAuth();
   const navigate = useNavigate();
-  // const location = useLocation();
-  // const from = location.state?.from?.path || "/";
 
   const [show, setShow] = useState(false);
   const [values, setValues] = useState({
@@ -22,36 +20,30 @@ export function Login() {
   })
   const [errorMessage, setErrorMessage] = useState('');
 
-  //aquí esta la variable que teníamos afuera.
-  /*   let userLogged = {}; */
-
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:8080/login', {
-      email: values.email,
-      password: values.password
-    })
-      .then((response) => {
-        const userLogged = response?.data
-        setAuth(userLogged);
-        //¿cómo hago para resetear el formulario cuando regreso a login con las flechas?
-
-        // setValues({
-        //   email: '',
-        //   password: '',
-        // })
-
-        if ((userLogged.user.role === "admin") === true) {
-          navigate('/admin')
-        }
-        if ((userLogged.user.role === "kitchen") === true) {
-          navigate('/kitchen');
-        }
-        if ((userLogged.user.role === "dinner") === true) {
-          navigate('/dinner');
-        }
+    try {
+      const response = await axios.post('http://localhost:8080/login', {
+        email: values.email,
+        password: values.password
       })
-      .catch((error) => setErrorMessage(error.response.data));
+      const userLogged = response?.data
+      setAuth(userLogged);
+
+      if ((userLogged.user.role === "admin") === true) {
+        navigate('/admin')
+      }
+      if ((userLogged.user.role === "kitchen") === true) {
+        navigate('/kitchen');
+      }
+      if ((userLogged.user.role === "dinner") === true) {
+        navigate('/dinner');
+      }
+
+    } catch (err) {
+      setErrorMessage(err.response.data)
+
+    }
   }
 
   return (

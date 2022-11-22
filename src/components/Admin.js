@@ -5,6 +5,8 @@ import HeaderGeneral from "./HeaderGeneral.js";
 import NavbarAdmin from "./NavbarAdmin.js";
 import useAuth from "../hook/useAuth";
 import ModalUser from './ModalUser.js';
+// import axios from 'axios';
+import Users from './Users';
 
 const Admin = () => {
 const [show, setShow] = useState(false);
@@ -21,6 +23,10 @@ const { auth } = useAuth();
                 <section className='body-admin'>
                     <button className="create-user" onClick={() => setShow(true)}>Create user</button>
                     <ModalUser onClose={() => setShow(false)} show={show}/>
+                    <div>
+                        Holis
+                        <Users />
+                    </div>
                 </section>
             </div>
         );
