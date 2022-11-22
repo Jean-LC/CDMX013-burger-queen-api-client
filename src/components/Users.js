@@ -1,44 +1,50 @@
-import axios from 'axios';
 import useAuth from "../hook/useAuth";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getUsers } from '../services/api';
 
 const Users = () => {
     const { auth } = useAuth();
-    const [email, setEmail] = useState();
+    const [email, setEmail] = useState('');
     const [role, setRole] = useState();
+    const [data, setData] = useState([]);
 
     const readUser = async () => {
 
         try {
-            const getUser = await axios.get('http://localhost:8080/users', {
-                headers: {
-                    'Content-Type': 'application/json',
 
-                    'Authorization': `Bearer ${auth.accessToken}`
-                }
+            const myObject = {
+                name:'nico',
+                lastname:'perez'
             }
-            );
 
-            console.log(getUser.data);
-            
+            const {name, lastName} = myObject
 
-            // getUser.data.map((user) => {
-            //            return setData()
-            // })
+            console.log(name);
+            console.log(lastName);
+          
+            const {data} = await getUsers(auth.accessToken) 
+             
+            setData(data)
+
+
+       
         }
         catch (err) {
             console.log(err.response.data)
-
         }
     }
-   readUser()
+
+    useEffect(() => {
+        
+        readUser()
+    }, [])
 
     return (
         <>
             <p>soy la data con use state </p>
+            {data.map((user) => (<p key={user.id}>{user.email}</p>))}
         </>
     )
-
 }
 
 export default Users;
