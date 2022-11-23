@@ -7,12 +7,12 @@ import deleteImg from '../images/deleteImg.png';
 
 const Users = () => {
     const { auth } = useAuth();
-    const [data, setData] = useState([]);
+    const [dataUser, setDataUser] = useState([]);
 
     const readUser = async () => {
         try {
             const { data } = await getUsers(auth.accessToken)
-            setData(data)
+            setDataUser(data)
         }
         catch (err) {
             console.log(err.response.data)
@@ -23,10 +23,10 @@ const Users = () => {
         try {
             const dlt = await deleteUsers(userId, auth.accessToken);
             console.log('dlt', dlt)
-            const newData = data.filter((item) => item.id !== userId)
+            const newData = dataUser.filter((item) => item.id !== userId)
 
             console.log("funciona?", newData)
-            setData(newData)
+            setDataUser(newData)
 
         } catch (err) {
             console.log(err)
@@ -35,11 +35,11 @@ const Users = () => {
 
     useEffect(() => {
         readUser()
-    }, [])
+    }, [dataUser])
 
     return (
         <>
-            {data.map((user) => (
+            {dataUser.map((user) => (
                 <div className="div-users" key={user.id}>
                     <p >{user.role}</p>
                     <p>{user.email}</p>
