@@ -3,9 +3,8 @@ import './styles/grid.css';
 import './styles/Admin.css'
 import HeaderGeneral from "./HeaderGeneral.js";
 import NavbarAdmin from "./NavbarAdmin.js";
-import useAuth from "../hook/useAuth";
+import useAuth from "../hook/useAuth.js";
 import ModalUser from './ModalUser.js';
-// import axios from 'axios';
 import Users from './Users';
 
 const Admin = () => {

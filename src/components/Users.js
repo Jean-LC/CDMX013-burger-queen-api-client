@@ -35,7 +35,7 @@ const Users = () => {
 
     useEffect(() => {
         readUser()
-    }, [])
+    },)
 
     return (
         <>
@@ -48,7 +48,7 @@ const Users = () => {
                     </img>
                     <img src={deleteImg}
                         className='delete-image'
-                        alt='delete-image'
+                        alt='delete'
                         id={user.id}
                         onClick={() => hadleDltUsers(user.id)}
                     >
