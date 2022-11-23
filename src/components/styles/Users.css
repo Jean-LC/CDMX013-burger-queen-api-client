@@ -1,3 +1,11 @@
 .div-users{
     background: white;
+    height: 5rem;
+    margin: 2rem 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.p-user-content{
+    font-size: 24px;
 }
