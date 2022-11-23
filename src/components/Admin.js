@@ -20,10 +20,12 @@ const { auth } = useAuth();
                     <div className='nav-bar-admin'>
                     <NavbarAdmin />
                     </div>
-                <section className='body-admin'>
+                    <div className='button-create-user'>
                     <button className="create-user" onClick={() => setShow(true)}>Create user</button>
+                    </div>
+                <section className='body-admin'>
                     <ModalUser onClose={() => setShow(false)} show={show}/>
-                    <div>
+                    <div className='users-rendering'>
                         <Users />
                     </div>
                 </section>

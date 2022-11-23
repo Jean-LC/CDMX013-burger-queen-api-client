@@ -8,12 +8,16 @@
 }
 .body-admin{
     grid-column: span 4;
-    grid-row: span 6;
+    grid-row: span 5;
+}
+.button-create-user{
+    grid-column: span 4;
+    grid-row: span 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .create-user{
-    position: absolute;
-    left: 38%;
-    top: 33%;
     width: 22vw;
     height: 4vh;
     font-size: 24px;
