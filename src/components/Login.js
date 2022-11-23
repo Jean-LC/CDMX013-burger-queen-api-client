@@ -23,7 +23,6 @@ export function Login() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-
 /*       axios.post('http://localhost:8080/login', {
         email: values.email,
         password: values.password
@@ -43,7 +42,8 @@ export function Login() {
       }
 
     } catch (err) {
-      setErrorMessage(err.response)
+      setErrorMessage(err.response.data)
+
 
     }
   }
