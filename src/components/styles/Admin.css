@@ -9,6 +9,7 @@
 .body-admin{
     grid-column: span 4;
     grid-row: span 5;
+    overflow: scroll;
 }
 .button-create-user{
     grid-column: span 4;
