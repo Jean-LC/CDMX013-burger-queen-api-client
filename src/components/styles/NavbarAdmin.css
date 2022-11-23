@@ -18,6 +18,10 @@
     border: none;
     color: #f6f6f6
 }
+/* this has to be conditionated */
+.user-management {
+border-bottom: solid 5px white;
+}
 
 /* .user-management, .product-management ::placeholder{
     background-color: #A3BCF9;
