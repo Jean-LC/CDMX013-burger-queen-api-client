@@ -35,14 +35,14 @@ const Users = () => {
 
     useEffect(() => {
         readUser()
-    }, [dataUser])
+    }, [])
 
     return (
         <>
             {dataUser.map((user) => (
                 <div className="div-users" key={user.id}>
-                    <p >{user.role}</p>
-                    <p>{user.email}</p>
+                    <p className='p-user-content'>{user.role.toUpperCase()}</p>
+                    <p className='p-user-content'>{user.email}</p>
                     <img src={edit} className='edit-button'
                         alt='edit-button'>
                     </img>
