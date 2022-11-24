@@ -79,6 +79,9 @@
 .radio-buttons-div {
     margin-bottom: 2rem;
 }
+.error-create{
+    color: white;
+}
 
 .label-inputs {
     font-size: 26px;
