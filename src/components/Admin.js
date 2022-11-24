@@ -48,6 +48,10 @@ const Admin = () => {
         } 
     }
 
+    const editUser = (id) => {
+        console.log("holis soy edit", id)
+    }
+
     useEffect(() => {
         readUser()
     }, [])
@@ -70,7 +74,7 @@ const Admin = () => {
                 onSubmit={addUser} 
                 error={errorMessage}/>
                 <div className='users-rendering'>
-                    <Users users={dataUser} handleDelete={hadleDltUsers}/>
+                    <Users users={dataUser} handleDelete={hadleDltUsers} handleUser={editUser}/>
                 </div>
             </section>
         </div>
