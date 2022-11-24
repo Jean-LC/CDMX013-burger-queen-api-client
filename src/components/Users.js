@@ -1,26 +1,16 @@
 import './styles/Users.css';
-import useAuth from "../hook/useAuth";
+/* import useAuth from "../hook/useAuth";
 import { useEffect, useState } from 'react';
-import { getUsers, deleteUsers } from '../services/api';
+import { getUsers, deleteUsers } from '../services/api'; */
 import edit from '../images/edit.png';
 import deleteImg from '../images/deleteImg.png';
 
-const Users = () => {
-    const { auth } = useAuth();
-    const [dataUser, setDataUser] = useState([]);
+const Users = ({users}) => {
 
-    const readUser = async () => {
-        try {
-            const { data } = await getUsers(auth.accessToken)
-            setDataUser(data)
-        }
-        catch (err) {
-            console.log(err.response.data)
-        }
-    }
-    
+    // eventualmente vivira en Admin
     const hadleDltUsers = async (userId) => {
-        try {
+        console.log(userId)
+       /*  try {
             const dlt = await deleteUsers(userId, auth.accessToken);
             console.log('dlt', dlt)
             const newData = dataUser.filter((item) => item.id !== userId)
@@ -30,16 +20,12 @@ const Users = () => {
 
         } catch (err) {
             console.log(err)
-        }
+        } */
     }
-
-    useEffect(() => {
-        readUser()
-    },)
 
     return (
         <>
-            {dataUser.map((user) => (
+            {users.map((user) => (
                 <div className="div-users" key={user.id}>
                     <p className='p-user-content'>{user.role.toUpperCase()}</p>
                     <p className='p-user-content'>{user.email}</p>
