@@ -1,26 +1,23 @@
 import './styles/Users.css';
-/* import useAuth from "../hook/useAuth";
-import { useEffect, useState } from 'react';
-import { getUsers, deleteUsers } from '../services/api'; */
+import { useState } from 'react';
 import edit from '../images/edit.png';
-import deleteImg from '../images/deleteImg.png';
+import deleteImg from '../images/deleteImg-black.png';
+import ModalDelete from './ModalDelete/ModalDelete';
 
-const Users = ({users}) => {
+const Users = ({ users, handleDelete, handleUser }) => {
+    const [show, setShow] = useState(false);
+    const [activeId, setActiveId] = useState('')
 
-    // eventualmente vivira en Admin
-    const hadleDltUsers = async (userId) => {
-        console.log(userId)
-       /*  try {
-            const dlt = await deleteUsers(userId, auth.accessToken);
-            console.log('dlt', dlt)
-            const newData = dataUser.filter((item) => item.id !== userId)
+    const fnEdit = () => {
+        console.log(activeId)
+        handleUser(activeId)
+        setShow(false)
+    }
 
-            console.log("funciona?", newData)
-            setDataUser(newData)
-
-        } catch (err) {
-            console.log(err)
-        } */
+    const fnDelete = () => {
+        console.log(activeId)
+       handleDelete(activeId)
+        setShow(false)
     }
 
     return (
@@ -30,17 +27,28 @@ const Users = ({users}) => {
                     <p className='p-user-content'>{user.role.toUpperCase()}</p>
                     <p className='p-user-content'>{user.email}</p>
                     <img src={edit} className='edit-button'
-                        alt='edit-button'>
+                        alt='edit-button'
+                        id={user.id}
+                        onClick={() => {
+                            setActiveId(user.id)
+                            fnEdit()
+                        }}
+                    >
                     </img>
                     <img src={deleteImg}
                         className='delete-image'
                         alt='delete'
                         id={user.id}
-                        onClick={() => hadleDltUsers(user.id)}
+                        onClick={() => {
+                            setActiveId(user.id)
+                            setShow(true)
+                          
+                        }}
                     >
                     </img>
                 </div>
             ))}
+            <ModalDelete deleteHandle={fnDelete} show={show} onClose={() => setShow(false)} />
         </>
     )
 }

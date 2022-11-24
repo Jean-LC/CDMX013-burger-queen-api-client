@@ -2,19 +2,18 @@ import './styles/ModalUser.css';
 import { useState } from 'react';
 
 
-function ModalUser({ show, onClose, onSubmit }) {
+function ModalUser({ show, onClose, onSubmit, error }) {
     const [newUser, setNewUser] = useState(
         {
             email: '',
             password: '',
             role: ''
         })
+        
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(newUser)
-        setNewUser('')
-        onClose()
+            onSubmit(newUser)
     }
 
     if (!show) {
@@ -26,10 +25,12 @@ function ModalUser({ show, onClose, onSubmit }) {
                     <input className='input-email'
                         placeholder='Email'
                         type='text'
+                        required
                         onChange={(e) => setNewUser({ ...newUser, email: e.target.value })} />
                     <input className='input-password'
                         placeholder='Password'
                         type='password'
+                        required
                         onChange={(e) => setNewUser({ ...newUser, password: e.target.value })} />
                 </div>
                 <div className='radio-buttons-div'>
@@ -37,6 +38,7 @@ function ModalUser({ show, onClose, onSubmit }) {
                         <input type="radio"
                             name="option"
                             className='radio-button'
+                            required
                             onChange={(e) => setNewUser({ ...newUser, role: 'kitchen' })} />
                         Kitchen Staff
                     </label>
@@ -57,9 +59,10 @@ function ModalUser({ show, onClose, onSubmit }) {
                     </label>
 
                 </div>
+                <p className="error-create" >{error}</p>
                 <div className='buttons-modal'>
                     <button className='accept-user' type='submit'> Create user </button>
-                    <button className='cancel-user' onClick={onClose}>Cancel</button>
+                    <button className='cancel-user' onClick={onClose} >Cancel</button>
                 </div>
             </form>
         </div>
