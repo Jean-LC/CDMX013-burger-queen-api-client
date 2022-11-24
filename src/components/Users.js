@@ -1,27 +1,17 @@
 import './styles/Users.css';
-/* import useAuth from "../hook/useAuth";
-import { useEffect, useState } from 'react';
-import { getUsers, deleteUsers } from '../services/api'; */
+import { useState } from 'react';
 import edit from '../images/edit.png';
-import deleteImg from '../images/deleteImg.png';
+import deleteImg from '../images/deleteImg-black.png';
+import ModalDelete from './ModalDelete/ModalDelete';
 
-const Users = ({users}) => {
+const Users = ({ users, handleDelete }) => {
+    const [show, setShow] = useState(false);
+    const [activeId, setActiveId] = useState('')
 
-    // eventualmente vivira en Admin
-    const hadleDltUsers = async (userId) => {
-        console.log(userId)
-       /*  try {
-            const dlt = await deleteUsers(userId, auth.accessToken);
-            console.log('dlt', dlt)
-            const newData = dataUser.filter((item) => item.id !== userId)
-
-            console.log("funciona?", newData)
-            setDataUser(newData)
-
-        } catch (err) {
-            console.log(err)
-        } */
-    }
+     const fnDelete = () => {
+        handleDelete(activeId)
+        setShow(false)
+     }
 
     return (
         <>
@@ -36,11 +26,15 @@ const Users = ({users}) => {
                         className='delete-image'
                         alt='delete'
                         id={user.id}
-                        onClick={() => hadleDltUsers(user.id)}
+                        onClick={() => {
+                            setActiveId(user.id)
+                            setShow(true)
+                        }}
                     >
                     </img>
                 </div>
             ))}
+            <ModalDelete deleteHandle={fnDelete} show={show} onClose={()=> setShow(false)}/>
         </>
     )
 }
