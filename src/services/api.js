@@ -1,16 +1,13 @@
 import axios from "axios";
+//Notación para usar como constante Rutas
+const BASE_URL = 'http://localhost:8080';
 
-const BASE_URL = 'http://localhost:8080'
-
-export const loginUser = (userEmail, userPassword) => {
-    return axios.post(`${BASE_URL}/login`, {
-        email: userEmail,
-        password: userPassword
-    })
+export const axiosPost = ( body, url) => {
+    return axios.post(`${BASE_URL}${url}`, body)
 }
 
-export const getUsers = (token) => {
-    return axios.get(`${BASE_URL}/users`, {
+export const axiosGet = (token, url) => {
+    return axios.get(`${BASE_URL}${url}`, {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
@@ -18,8 +15,8 @@ export const getUsers = (token) => {
     });
 }
 
-export const deleteUsers = (id, token) => {
-    return axios.delete(`${BASE_URL}/users/${id}`, {
+export const axiosDelete = (id, token, url) => {
+    return axios.delete(`${BASE_URL}${url}/${id}`, {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
@@ -30,6 +27,14 @@ export const deleteUsers = (id, token) => {
     })
 }
 
-export const createUser = (body) => {
-    return axios.post(`${BASE_URL}/users`, body)
+export const axiosPatch = (id, token, body, url) =>{
+    return axios.patch(`${BASE_URL}${url}/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body
+    })
 }
+
+
