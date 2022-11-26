@@ -1,0 +1,33 @@
+.missing-page-h2{
+    grid-row: span 2;
+    grid-column: span 4;
+    color: #f6f6f6;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15%;
+}
+.suchito-sad{
+    grid-row: span 4;
+    grid-column: span 4;
+    width: 18.75rem;
+    margin: 8rem 0 0 15rem;
+}
+.missing-page-p{
+    grid-row: span 1;
+    grid-column: span 4;
+    color: #f6f6f6;
+    font-size: 40px;
+    text-align: center;
+}
+.missing-page-link{
+    grid-row: span 1;
+    grid-column: span 4;
+    background-color: #A3BCF9;
+    font-size: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

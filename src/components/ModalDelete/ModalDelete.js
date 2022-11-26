@@ -1,7 +1,6 @@
 import './ModalDelete.css'
 import deleteImg from "../../images/deleteImg.png";
 import confirmImg from "../../images/check.png"
-// import { closeModal } from "./showModal";
 
 
 const ModalDelete = ({show, deleteHandle, onClose}) => {
