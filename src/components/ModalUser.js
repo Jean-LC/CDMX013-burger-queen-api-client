@@ -1,19 +1,18 @@
 import './styles/ModalUser.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
-function ModalUser({ show, onClose, onSubmit, error }) {
-    const [newUser, setNewUser] = useState(
-        {
-            email: '',
-            password: '',
-            role: ''
-        })
-        
+function ModalUser({ show, onClose, onSubmit, error, user, setUser }) {
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setUser({ ...user, [name]: value })
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-            onSubmit(newUser)
+        onSubmit(user)
     }
 
     if (!show) {
@@ -26,34 +25,41 @@ function ModalUser({ show, onClose, onSubmit, error }) {
                         placeholder='Email'
                         type='text'
                         required
-                        onChange={(e) => setNewUser({ ...newUser, email: e.target.value })} />
+                        name="email"
+                        value={user.email}
+                        onChange={handleChange} />
                     <input className='input-password'
                         placeholder='Password'
                         type='password'
                         required
-                        onChange={(e) => setNewUser({ ...newUser, password: e.target.value })} />
+                        name = "password"
+                        defaultValue={''}
+                        onChange={handleChange} />
                 </div>
                 <div className='radio-buttons-div'>
                     <label className='label-inputs'>
                         <input type="radio"
-                            name="option"
+                            name="role"
                             className='radio-button'
                             required
-                            onChange={(e) => setNewUser({ ...newUser, role: 'kitchen' })} />
+                            checked={user.role === 'kitchen'}
+                            onChange={(e) => setUser({ ...user, role: 'kitchen' })} />
                         Kitchen Staff
                     </label>
                     <label className='label-inputs'>
                         <input type="radio"
-                            name="option"
+                            name="role"
                             className='radio-button'
-                            onChange={(e) => setNewUser({ ...newUser, role: 'dinner' })} />
+                            checked={user.role === 'dinner'}
+                            onChange={(e) => setUser({ ...user, role: 'dinner' })} />
                         Dinner Staff
                     </label>
                     <label className='label-inputs'>
                         <input type="radio"
-                            name="option"
+                            name="role"
                             className='radio-button'
-                            onChange={() => setNewUser({ ...newUser, role: 'admin' })}
+                            checked={user.role === 'admin'}
+                            onChange={() => setUser({ ...user, role: 'admin' })}
                         />
                         Admin
                     </label>
@@ -61,7 +67,7 @@ function ModalUser({ show, onClose, onSubmit, error }) {
                 </div>
                 <p className="error-create" >{error}</p>
                 <div className='buttons-modal'>
-                    <button className='accept-user' type='submit'> Create user </button>
+                    <button className='accept-user' type='submit'> Accept </button>
                     <button className='cancel-user' onClick={onClose} >Cancel</button>
                 </div>
             </form>

@@ -39,6 +39,7 @@ const Admin = () => {
             setErrorMessage(err.response.data)
         }
     }
+
     const hadleDltUsers = async (userId) => {
         try {
             const dlt = await axiosDelete(userId, auth.accessToken, URL_USERS);
@@ -64,7 +65,7 @@ const Admin = () => {
     }
 
     const patchUser = () => {
-        
+
     }
 
     useEffect(() => {
@@ -92,9 +93,11 @@ const Admin = () => {
                     })
                 }}
                     show={show}
-                    onSubmit={addUser}
+                    onSubmit={addUser} //TODO:" condicionar onSubmit con id para usar patchUser en el boton de aceptar
                     error={errorMessage}
-                    user={oneUser} />
+                    user={oneUser} 
+                    setUser={setOneUser}
+                    />
                 <div className='users-rendering'>
                     <Users users={dataUser} handleDelete={hadleDltUsers} handleUser={editUser} />
                 </div>
