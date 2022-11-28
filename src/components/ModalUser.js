@@ -31,7 +31,7 @@ function ModalUser({ show, onClose, onSubmit, error, user, setUser }) {
                     <input className='input-password'
                         placeholder='Password'
                         type='password'
-                        required
+                        // required
                         name = "password"
                         defaultValue={''}
                         onChange={handleChange} />
