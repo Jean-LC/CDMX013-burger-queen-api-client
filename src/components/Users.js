@@ -8,12 +8,6 @@ const Users = ({ users, handleDelete, handleUser }) => {
     const [show, setShow] = useState(false);
     const [activeId, setActiveId] = useState('')
 
-   /*  const fnEdit = (id) => {
-        console.log(id)
-        handleUser(id)
-        setShow(false)
-    } */
-
     const fnDelete = () => {
         console.log(activeId)
         handleDelete(activeId)
