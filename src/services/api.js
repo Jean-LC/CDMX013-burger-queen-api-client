@@ -2,7 +2,7 @@ import axios from "axios";
 //Notación para usar como constante Rutas
 const BASE_URL = 'http://localhost:8080';
 
-export const axiosPost = ( body, url) => {
+export const axiosPost = (body, url) => {
     return axios.post(`${BASE_URL}${url}`, body)
 }
 
@@ -27,13 +27,12 @@ export const axiosDelete = (id, token, url) => {
     })
 }
 
-export const axiosPatch = (id, token, body, url) =>{
-    return axios.patch(`${BASE_URL}${url}/${id}`, {
+export const axiosPatch = (url, id, token, body) => {
+    return axios.patch(`${BASE_URL}${url}/${id}`, body, {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
-        },
-        body
+        }
     })
 }
 
