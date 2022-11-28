@@ -43,10 +43,8 @@ const Admin = () => {
     const hadleDltUsers = async (userId) => {
         try {
             const dlt = await axiosDelete(userId, auth.accessToken, URL_USERS);
-            console.log('dlt', dlt)
             const newData = dataUser.filter((item) => item.id !== userId)
 
-            console.log("funciona?", newData)
             setDataUser(newData)
 
         } catch (err) {
@@ -58,15 +56,28 @@ const Admin = () => {
         try {
             setOneUser((await axiosGet(auth.accessToken, `${URL_USERS}/${id}`)).data);
             setShow(true)
-            console.log(oneUser);
         } catch (err) {
             console.log(err)
         }
     }
 
-    const patchUser = () => {
+        // params(id, token, body, url)
+    const patchUser = async () => {
+        try{
+            const editPatch = await axiosPatch(URL_USERS, oneUser.id, auth.accessToken, oneUser)
+            readUser();
+            setShow(false)
+            setErrorMessage('')
+            setOneUser({
+                email: '',
+                role: ''
+            })
+            console.log("soy ediiiiiiit", editPatch)
 
+        }catch (err) {
+            setErrorMessage(err.response.data)
     }
+}
 
     useEffect(() => {
         readUser()
@@ -93,7 +104,7 @@ const Admin = () => {
                     })
                 }}
                     show={show}
-                    onSubmit={addUser} //TODO:" condicionar onSubmit con id para usar patchUser en el boton de aceptar
+                    onSubmit={!oneUser.id ? addUser : patchUser} 
                     error={errorMessage}
                     user={oneUser} 
                     setUser={setOneUser}
