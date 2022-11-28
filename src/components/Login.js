@@ -4,7 +4,7 @@ import ModalHelp from './ModalHelp';
 import logo from '../images/suchi-texto.png';
 import help from '../images/help.png';
 import { useState } from 'react';
-import { loginUser } from '../services/api.js';
+import { axiosPost } from '../services/api.js';
 import useAuth from '../hook/useAuth';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,14 +20,12 @@ export function Login() {
   })
   const [errorMessage, setErrorMessage] = useState('');
 
+  const URL_LOGIN = '/login'
+
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-/*       axios.post('http://localhost:8080/login', {
-        email: values.email,
-        password: values.password
-      }) */
-      const response = await loginUser(values.email, values.password)
+      const response = await axiosPost(values, URL_LOGIN)
       const userLogged = response.data
       setAuth(userLogged);
 

@@ -8,15 +8,15 @@ const Users = ({ users, handleDelete, handleUser }) => {
     const [show, setShow] = useState(false);
     const [activeId, setActiveId] = useState('')
 
-    const fnEdit = () => {
-        console.log(activeId)
-        handleUser(activeId)
+   /*  const fnEdit = (id) => {
+        console.log(id)
+        handleUser(id)
         setShow(false)
-    }
+    } */
 
     const fnDelete = () => {
         console.log(activeId)
-       handleDelete(activeId)
+        handleDelete(activeId)
         setShow(false)
     }
 
@@ -30,8 +30,7 @@ const Users = ({ users, handleDelete, handleUser }) => {
                         alt='edit-button'
                         id={user.id}
                         onClick={() => {
-                            setActiveId(user.id)
-                            fnEdit()
+                            handleUser(user.id)
                         }}
                     >
                     </img>
@@ -42,7 +41,6 @@ const Users = ({ users, handleDelete, handleUser }) => {
                         onClick={() => {
                             setActiveId(user.id)
                             setShow(true)
-                          
                         }}
                     >
                     </img>
