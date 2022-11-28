@@ -11,14 +11,14 @@
     grid-row: span 5;
     overflow: scroll;
 }
-.button-create-user{
+.button-create-user, .button-create-product{
     grid-column: span 4;
     grid-row: span 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.create-user{
+.create-user, .create-product{
     width: 22vw;
     height: 4vh;
     font-size: 24px;
