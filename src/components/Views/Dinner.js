@@ -1,4 +1,4 @@
-import './styles/grid.css';
+import '../styles/grid.css';
 
 const Dinner = () => {
     return (

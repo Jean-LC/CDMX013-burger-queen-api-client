@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import '../styles/grid.css';
-import './Missing.css';
+import '../styles/Missing.css';
 import suchitoSad from "../../images/suchito-sad.png";
 
 const Missing = () => {

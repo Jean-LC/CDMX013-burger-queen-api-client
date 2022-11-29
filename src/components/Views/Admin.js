@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import './styles/grid.css';
-import './styles/Admin.css'
-import HeaderGeneral from "./HeaderGeneral.js";
-import NavbarAdmin from "./NavbarAdmin.js";
-import useAuth from "../hook/useAuth.js";
-import ModalUser from './ModalUser.js';
-import Users from './Users';
-import { axiosGet, axiosPost, axiosDelete, axiosPatch } from '../services/api';
+import '../styles/grid.css';
+import '../styles/Admin.css'
+import HeaderGeneral from "../HeaderGeneral.js";
+import NavbarAdmin from "../NavbarAdmin.js";
+import useAuth from "../../hook/useAuth.js";
+import ModalUser from '../ModalUser.js';
+import Users from '../Users';
+import { axiosGet, axiosPost, axiosDelete, axiosPatch } from '../../services/api';
 
 const Admin = () => {
     const [show, setShow] = useState(false);
@@ -42,7 +42,7 @@ const Admin = () => {
 
     const hadleDltUsers = async (userId) => {
         try {
-            const dlt = await axiosDelete(userId, auth.accessToken, URL_USERS);
+            await axiosDelete(userId, auth.accessToken, URL_USERS);
             const newData = dataUser.filter((item) => item.id !== userId)
 
             setDataUser(newData)

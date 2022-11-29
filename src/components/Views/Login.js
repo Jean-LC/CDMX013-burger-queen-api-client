@@ -1,11 +1,11 @@
-import './styles/Login.css';
-import './styles/grid.css';
-import ModalHelp from './ModalHelp';
-import logo from '../images/suchi-texto.png';
-import help from '../images/help.png';
+import '../styles/Login.css';
+import '../styles/grid.css';
+import ModalHelp from '../ModalHelp';
+import logo from '../../images/suchi-texto.png';
+import help from '../../images/help.png';
 import { useState } from 'react';
-import { axiosPost } from '../services/api.js';
-import useAuth from '../hook/useAuth';
+import { axiosPost } from '../../services/api.js';
+import useAuth from '../../hook/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 export function Login() {

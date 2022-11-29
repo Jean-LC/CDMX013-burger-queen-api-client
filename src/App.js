@@ -3,15 +3,14 @@ import {
   Route
 } from "react-router-dom";
 import React from "react";
-import { Login } from "./components/Login.js";
-import Admin from "./components/Admin.js";
+import { Login } from "./components/Views/Login.js";
+import Admin from "./components/Views/Admin.js";
 import ProductAdmin from "./components/ProductAdmin.js";
 import Layout from "./components/Layout.js";
-import Missing from "./components/Missing/Missing.js";
+import Missing from "./components/Views/Missing.js";
 import RequireAuth from "./components/RequireAuth.js";
-import Kitchen from "./components/Kitchen.js"
-import Dinner from "./components/Dinner.js"
-import HeaderGeneral from "./components/HeaderGeneral.js";
+import Kitchen from "./components/Views/Kitchen.js"
+import Dinner from "./components/Views/Dinner.js"
 
 export default function App() {
   return (
