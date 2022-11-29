@@ -86,7 +86,7 @@ const Admin = () => {
     return (
         <div className="grid">
             <header className='admin-header'>
-                <HeaderGeneral section={'ADMIN'} email={auth.user.email} />
+                <HeaderGeneral section={auth.user.role.toUpperCase()} email={auth.user.email} />
             </header>
             <div className='nav-bar-admin'>
                 <NavbarAdmin />

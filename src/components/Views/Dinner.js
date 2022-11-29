@@ -1,9 +1,16 @@
 import '../styles/grid.css';
+import '../styles/Admin.css'
+import useAuth from '../../hook/useAuth';
+import HeaderGeneral from '../HeaderGeneral';
+
 
 const Dinner = () => {
+    const {auth} = useAuth()
     return (
         <article className= "grid">
-            <h2 className="missing-page-h2">Dinner </h2>
+            <header className='admin-header'>
+                <HeaderGeneral section={auth.user.role.toUpperCase()} email={auth.user.email}/>
+            </header>
         
         </article>
     )

@@ -7,7 +7,6 @@ describe('Modal help rendering tests', () => {
         render(<ModalHelp />);
         const logoImg = screen.getByRole('Button');
         expect(logoImg).toBeInTheDocument();
-
     })
 
 })
