@@ -2,7 +2,7 @@ import './styles/Users.css';
 import { useState } from 'react';
 import edit from '../images/edit.png';
 import deleteImg from '../images/deleteImg-black.png';
-import ModalDelete from './ModalDelete/ModalDelete';
+import ModalDelete from './ModalDelete';
 
 const Users = ({ users, handleDelete, handleUser }) => {
     const [show, setShow] = useState(false);

@@ -1,6 +1,4 @@
 import './styles/ModalUser.css';
-import { useState, useEffect } from 'react';
-
 
 function ModalUser({ show, onClose, onSubmit, error, user, setUser }) {
 

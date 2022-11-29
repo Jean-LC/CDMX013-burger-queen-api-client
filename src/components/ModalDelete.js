@@ -1,6 +1,6 @@
-import './ModalDelete.css'
-import deleteImg from "../../images/deleteImg.png";
-import confirmImg from "../../images/check.png"
+import './styles/ModalDelete.css'
+import deleteImg from "../images/deleteImg.png";
+import confirmImg from "../images/check.png"
 
 
 const ModalDelete = ({ show, deleteHandle, onClose }) => {
