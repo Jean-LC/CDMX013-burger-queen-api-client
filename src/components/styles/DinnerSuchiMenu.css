@@ -6,3 +6,73 @@
     grid-column: span 4;
     grid-row: span 1;
 }
+.products{
+    grid-column: span 4;
+    grid-row: span 3;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+
+
+}
+.products-grid{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+width: 90vw;
+align-items: stretch;
+justify-content: space-around;
+gap: 1rem 1rem;
+}
+.input-client{
+    grid-column: span 3;
+    grid-row: span 1;
+    width: 30vw;
+    height: 3vh;
+    text-align: center;
+    margin: 2% 0 0 33%;
+    font-size: 20px;
+}
+.ticket{
+    grid-column: span 4;
+    grid-row: span 3;
+    background-color: #f6f6f6;
+}
+
+.products-sushi-menu{
+    width: 200px;
+    height: 200px;
+}
+
+.send-kitchen-button{
+    width: 20.70vw;
+    height: 5vh;
+    font-size: 18px;
+    border-width: 5px;
+    border-radius: 4px;
+    background-color: #399d5a75;
+    color: #313133;
+    border: #399D5A 5px solid;
+    margin-left: 7.5rem;
+    margin-top: 3rem;
+}
+
+/*scrollbar style*/
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(146, 133, 156, 0.148);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.916);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(134, 129, 129);
+  }
+  
