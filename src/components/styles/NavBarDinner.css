@@ -1,0 +1,45 @@
+.navbar-dinner{
+    color: black;
+}
+.nav-bar-dinner-container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dinner-link{
+    width: 41.51vw;
+    margin-top: 5%;
+    height: 8vh;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    color: #313133;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.sushi-bar{
+    background-color: #a3bbf983; 
+}
+.status-delivered{
+    background-color: #878727; 
+}
+
+
+.active{
+    color: #f6f6f6;;
+    border-bottom: solid 5px white;
+}
+
+p{
+    color: aliceblue;
+    font-size: xx-large;
+    text-align: center;
+}
+

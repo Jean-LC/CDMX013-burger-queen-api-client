@@ -1,5 +1,5 @@
-import HeaderGeneral from "./HeaderGeneral.js";
-import NavbarAdmin from "./NavbarAdmin.js";
+import HeaderGeneral from "../HeaderGeneral.js";
+import NavbarAdmin from "../NavbarAdmin.js";
 const ProductAdmin = () => {
     return (
         <div className="grid">

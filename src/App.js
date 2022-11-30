@@ -5,12 +5,15 @@ import {
 import React from "react";
 import { Login } from "./components/Views/Login.js";
 import Admin from "./components/Views/Admin.js";
-import ProductAdmin from "./components/ProductAdmin.js";
+import ProductAdmin from "./components/Views/ProductAdmin";
 import Layout from "./components/Layout.js";
 import Missing from "./components/Views/Missing.js";
 import RequireAuth from "./components/RequireAuth.js";
 import Kitchen from "./components/Views/Kitchen.js"
-import Dinner from "./components/Views/Dinner.js"
+import DinnerSuchiMenu from "./components/Views/DinnerSushiMenu"
+import DinnerOpenBar from "./components/Views/DinnerOpenBar.js";
+import DinnerStatus from './components/Views/DinnerStatus.js';
+import DinnerDelivered from './components/Views/DinnerDelivered.js';
 
 export default function App() {
   return (
@@ -28,7 +31,10 @@ export default function App() {
           <Route path="kitchen" element={<Kitchen />} />
         </Route>
         <Route element={<RequireAuth allowedRole={'dinner'} />}>
-          <Route path="dinner" element={<Dinner />} />
+          <Route path="dinner" element={<DinnerSuchiMenu />} />
+          <Route path="dinner-open-bar" element={<DinnerOpenBar/>} />
+          <Route path="dinner-status" element={<DinnerStatus />} />
+          <Route path="dinner-delivered" element={<DinnerDelivered />} />
         </Route>
 
         {/* catch all */}

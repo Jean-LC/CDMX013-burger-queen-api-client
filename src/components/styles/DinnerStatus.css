@@ -1,0 +1,8 @@
+.dinner-status-header{
+    grid-column: span 4;
+    grid-row: span 1;
+}
+.nav-bar-dinner{
+    grid-column: span 4;
+    grid-row: span 1;
+}
