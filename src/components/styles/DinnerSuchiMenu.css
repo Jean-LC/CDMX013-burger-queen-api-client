@@ -6,32 +6,15 @@
     grid-column: span 4;
     grid-row: span 1;
 }
+
 .products{
     grid-column: span 4;
     grid-row: span 3;
     overflow: auto;
     display: flex;
     justify-content: center;
+}
 
-
-}
-.products-grid{
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-width: 90vw;
-align-items: stretch;
-justify-content: space-around;
-gap: 1rem 1rem;
-}
-.input-client{
-    grid-column: span 3;
-    grid-row: span 1;
-    width: 30vw;
-    height: 3vh;
-    text-align: center;
-    margin: 2% 0 0 33%;
-    font-size: 20px;
-}
 .ticket{
     grid-column: span 4;
     grid-row: span 3;

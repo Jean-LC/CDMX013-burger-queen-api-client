@@ -3,12 +3,30 @@ import '../styles/DinnerSuchiMenu.css'
 import useAuth from '../../hook/useAuth';
 import HeaderGeneral from '../HeaderGeneral';
 import NavBarDinner from '../NavBarDinner.js';
+import GridProductDinner from '../GridProductDinner.js'
 import {axiosGet} from '../../services/api';
+import { useState, useEffect } from 'react';
 
 const Dinner = () => {
     const { auth } = useAuth()
+    const [dataMenu, setDataMenu] = useState([])
 
     const URL_USERS = '/products'
+
+    const readProducts = async () =>{
+        try {
+           const data = await axiosGet(auth.accessToken, URL_USERS)
+            setDataMenu(data)
+            console.log(dataMenu)
+        } catch(err) {
+           console.log(err.response.data); 
+        }
+    }
+
+    useEffect(() => {
+        readProducts()
+    }, [])
+
     return (
         <article className="grid">
             <header className='dinner-sushi-menu-header'>
@@ -18,10 +36,7 @@ const Dinner = () => {
                 <NavBarDinner />
             </div>
             <article className='products'>
-                <div className='products-grid'>
-                    <input type='text' className='input-client' placeholder='client' name='client' required></input>
-                    <p></p>
-                </div>
+                <GridProductDinner products = {dataMenu.data}/>
 
             </article>
             <article className='ticket'>
