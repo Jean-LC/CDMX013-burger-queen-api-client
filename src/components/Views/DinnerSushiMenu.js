@@ -27,6 +27,10 @@ const Dinner = () => {
     
     const sushiMenu = dataMenu.filter((item) => item.type==='Sushi menu')
     
+    const getNewTicket = (product) => {
+        setProductsOrder([...productsOrder, product]);
+    }
+
     useEffect(() => {
         readProducts()
     }, [])
@@ -40,7 +44,7 @@ const Dinner = () => {
                 <NavBarDinner />
             </div>
             <article className='products'>
-                <GridProductDinner products = {sushiMenu} setClient = {setClient}/>
+                <GridProductDinner products = {sushiMenu} setClient = {setClient} newTicket = {getNewTicket}/>
 
             </article>
             <article className='ticket'>
