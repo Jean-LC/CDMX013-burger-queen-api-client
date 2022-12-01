@@ -19,6 +19,7 @@
     grid-column: span 4;
     grid-row: span 3;
     background-color: #f6f6f6;
+    overflow: auto;
 }
 
 .products-sushi-menu{
@@ -35,8 +36,17 @@
     background-color: #399d5a75;
     color: #313133;
     border: #399D5A 5px solid;
-    margin-left: 7.5rem;
-    margin-top: 3rem;
+}
+
+.reset-kitchen-button {
+  width: 20.70vw;
+  height: 5vh;
+  font-size: 18px;
+  border-width: 5px;
+  border-radius: 4px;
+  background-color: #ec928f75;
+  color: #313133;
+  border: #EC928F 5px solid;
 }
 
 /*scrollbar style*/
