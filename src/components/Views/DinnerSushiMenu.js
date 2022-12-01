@@ -5,30 +5,78 @@ import HeaderGeneral from '../HeaderGeneral';
 import NavBarDinner from '../NavBarDinner.js';
 import GridProductDinner from '../GridProductDinner.js';
 import DinnerTicket from '../DinnerTicket';
-import {axiosGet} from '../../services/api';
+import { axiosGet } from '../../services/api';
 import { useState, useEffect } from 'react';
 
 const Dinner = () => {
     const { auth } = useAuth()
     const [dataMenu, setDataMenu] = useState([])
-    const [ client, setClient ] = useState('')
-    const [ productsOrder, setProductsOrder ] = useState([])
+    const [client, setClient] = useState('')
+    const [productsOrder, setProductsOrder] = useState([
+        // {
+        //     qty:0,
+        //     products:[]
+        // }
+    ])
+    /* const [order, setOrder] = useState([
+        {
+            "userId": ,
+            "client": ,
+            "products": [
+                {
+                    "qty": ,
+                    "product": {
+
+                    }
+                }
+            ]
+            "status": ,
+            "dataEntry":
+        }
+    ]) */
 
     const URL_USERS = '/products'
 
-    const readProducts = async () =>{
+    const readProducts = async () => {
         try {
-        const data = await axiosGet(auth.accessToken, URL_USERS)
+            const data = await axiosGet(auth.accessToken, URL_USERS)
             setDataMenu(data.data)
-        } catch(err) {
-            console.log(err.response.data); 
+        } catch (err) {
+            console.log(err.response.data);
         }
     }
-    
-    const sushiMenu = dataMenu.filter((item) => item.type==='Sushi menu')
-    
+
+    const sushiMenu = dataMenu.filter((item) => item.type === 'Sushi menu')
+
     const getNewTicket = (product) => {
-        setProductsOrder([...productsOrder, product]);
+
+        if(productsOrder.indexOf(product) <0) {
+            setProductsOrder([...productsOrder, { qty: 1, product: product }]);
+                console.log('agrega nuevo producto')
+        } else {
+            console.log('ya existe el producto')
+        }
+        // se cancela, funciona con string
+       /*  productsOrder.forEach((item) => {
+            if (item.name !== product.name) {
+                setProductsOrder([...productsOrder, { qty: 1, product: product }]);
+                console.log('agrega nuevo producto')
+            } else {
+                console.log('ya existe el producto')
+            }
+        }
+        ) */
+
+        // if(productsOrder.map((item)=> item.name !== product.name)){
+        //     setProductsOrder([...productsOrder, {qty: 1, product: product}]);
+        //     console.log("holi squema ")
+        // } else {
+        //     console.log('adios')
+        // }
+
+        // else {
+        //     setProductsOrder([...productsOrder, productsOrder.qty ++])
+        // }
     }
 
     useEffect(() => {
@@ -44,11 +92,11 @@ const Dinner = () => {
                 <NavBarDinner />
             </div>
             <article className='products'>
-                <GridProductDinner products = {sushiMenu} setClient = {setClient} newTicket = {getNewTicket}/>
+                <GridProductDinner products={sushiMenu} setClient={setClient} newTicket={getNewTicket} />
 
             </article>
             <article className='ticket'>
-                <DinnerTicket name = {client} products = {productsOrder}/>
+                <DinnerTicket name={client} products={productsOrder} />
             </article>
 
         </article>

@@ -4,6 +4,7 @@ import rest from '../images/rest.png'
 
 
 const DinnerTicket = ({name, products}) => {
+    // console.log("soy products desde ticket: ",products.product)
     return(
         <div className= "dinner-ticket-container">
                 <p className= "dinner-ticket-p">Client: {name}</p>
@@ -11,10 +12,10 @@ const DinnerTicket = ({name, products}) => {
             <div className= "ticket-main" key={product.id}>
                 <section className="btn-plus-minus-dinner">
                     <img  src={rest} className='rest' alt='rest'></img>
-                    <p className="dinner-counter">0</p>
+                    <p className="dinner-counter">{product.qty}</p>
                     <img src={add} className='rest' alt='rest'></img>
                 </section>
-                <p className= "dinner-ticket-list">{product.name}  ${product.price}</p>
+                <p className= "dinner-ticket-list">{product.product.name}  ${product.product.price}</p>
             </div>
                 ))
                 }
