@@ -4,8 +4,19 @@
     width: 90vw;
     align-items: stretch;
     justify-content: space-around;
-    gap: 1rem 1rem;
+    gap: 0.5rem 2rem;
     }
+
+.one-product{
+    cursor: pointer;
+    background-color: #f6f6f6;
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}    
+
     .input-client{
         grid-column: span 3;
         grid-row: span 1;
@@ -14,4 +25,11 @@
         text-align: center;
         margin: 2% 0 0 33%;
         font-size: 20px;
+    }
+    
+    .product-body{
+        color: black;
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
     }
