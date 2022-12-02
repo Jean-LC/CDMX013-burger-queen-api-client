@@ -16,11 +16,15 @@
     align-items: center;
 }
 
-.dinner-ticket-list, .dinner-counter{
+.dinner-ticket-name, .dinner-counter, .dinner-ticket-price, .total-ticket{
     color: black;
 }
 
 .ticket-main{
     display: flex;
     justify-content: space-around;
+}
+.just-total{
+    color: #f6f6f6;
+    font-size: 1px;
 }

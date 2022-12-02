@@ -5,35 +5,23 @@ import HeaderGeneral from '../HeaderGeneral';
 import NavBarDinner from '../NavBarDinner.js';
 import GridProductDinner from '../GridProductDinner.js';
 import DinnerTicket from '../DinnerTicket';
-import { axiosGet } from '../../services/api';
+import { axiosGet, axiosPost } from '../../services/api';
 import { useState, useEffect } from 'react';
 
 const Dinner = () => {
     const { auth } = useAuth()
     const [dataMenu, setDataMenu] = useState([])
     const [client, setClient] = useState('')
-    const [productsOrder, setProductsOrder] = useState([
-        // {
-        //     qty:0,
-        //     products:[]
-        // }
-    ])
-    /* const [order, setOrder] = useState([
+    const [productsOrder, setProductsOrder] = useState([])
+    const order = [
         {
-            "userId": ,
-            "client": ,
-            "products": [
-                {
-                    "qty": ,
-                    "product": {
-
-                    }
-                }
-            ]
-            "status": ,
-            "dataEntry":
+            "userId": auth.user.id,
+            "client": client,
+            "products": productsOrder,
+            "status": 'pending',
+            "dataEntry": Date().toString()
         }
-    ]) */
+    ]
 
     const URL_USERS = '/products'
 
@@ -49,18 +37,37 @@ const Dinner = () => {
     const sushiMenu = dataMenu.filter((item) => item.type === 'Sushi menu')
 
     const handleProducts = (product) => {
-        
-        // let filterArray = productsOrder.filter((a) => a.product.name === product.name )
-        let arrayTry = productsOrder.findIndex((a) => a.product.name === product.name)
-        if (arrayTry < 0) {
+        let arrayIndex = productsOrder.findIndex((a) => a.product.name === product.name)
+        if (arrayIndex < 0) {
             setProductsOrder([...productsOrder, { qty: 1, product: product }]);
-        } 
-        else {
-            // setProductsOrder(productsOrder[arrayTry].qty++)
-            productsOrder[arrayTry].qty++
-            // console.log("Soy el else" , productsOrder)
         }
+        else {
+            let newOrder = productsOrder;
+            newOrder[arrayIndex].qty++
+            setProductsOrder([...newOrder]);
+        }
+    }
 
+    const lessProduct = (product) => {
+        let indexProduct = productsOrder.findIndex((a) => a.product.name === product.name)
+        let newOrder = productsOrder;
+        if (newOrder[indexProduct].qty === 1) {
+            newOrder = newOrder.filter((elements) => elements.product.name !== product.name)
+            setProductsOrder([...newOrder]);
+        } else {
+            newOrder[indexProduct].qty--
+            setProductsOrder([...newOrder]);
+        }
+    }
+
+    const sendOrder = async() => {
+        try{
+            const orderAxios = await axiosPost(order, URL_USERS, auth.accessToken );
+            console.log(orderAxios)
+            setProductsOrder([])
+        }catch (err) {
+            console.log(err.response.data);
+        }
     }
 
     useEffect(() => {
@@ -76,11 +83,19 @@ const Dinner = () => {
                 <NavBarDinner />
             </div>
             <article className='products'>
-                <GridProductDinner products={sushiMenu} setClient={setClient} newTicket={handleProducts} />
+                <GridProductDinner products={sushiMenu} 
+                setClient={setClient} 
+                newTicket={handleProducts} />
 
             </article>
             <article className='ticket'>
-                <DinnerTicket name={client} products={productsOrder} />
+                <DinnerTicket name={client} 
+                products={productsOrder} 
+                addProduct={handleProducts} 
+                lessProduct={lessProduct} 
+                reset={() => setProductsOrder([])} 
+                send ={sendOrder}
+                />
             </article>
 
         </article>
