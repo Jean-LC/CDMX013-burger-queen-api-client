@@ -48,35 +48,19 @@ const Dinner = () => {
 
     const sushiMenu = dataMenu.filter((item) => item.type === 'Sushi menu')
 
-    const getNewTicket = (product) => {
-
-        if(productsOrder.indexOf(product) <0) {
+    const handleProducts = (product) => {
+        
+        // let filterArray = productsOrder.filter((a) => a.product.name === product.name )
+        let arrayTry = productsOrder.findIndex((a) => a.product.name === product.name)
+        if (arrayTry < 0) {
             setProductsOrder([...productsOrder, { qty: 1, product: product }]);
-                console.log('agrega nuevo producto')
-        } else {
-            console.log('ya existe el producto')
+        } 
+        else {
+            // setProductsOrder(productsOrder[arrayTry].qty++)
+            productsOrder[arrayTry].qty++
+            // console.log("Soy el else" , productsOrder)
         }
-        // se cancela, funciona con string
-       /*  productsOrder.forEach((item) => {
-            if (item.name !== product.name) {
-                setProductsOrder([...productsOrder, { qty: 1, product: product }]);
-                console.log('agrega nuevo producto')
-            } else {
-                console.log('ya existe el producto')
-            }
-        }
-        ) */
 
-        // if(productsOrder.map((item)=> item.name !== product.name)){
-        //     setProductsOrder([...productsOrder, {qty: 1, product: product}]);
-        //     console.log("holi squema ")
-        // } else {
-        //     console.log('adios')
-        // }
-
-        // else {
-        //     setProductsOrder([...productsOrder, productsOrder.qty ++])
-        // }
     }
 
     useEffect(() => {
@@ -92,7 +76,7 @@ const Dinner = () => {
                 <NavBarDinner />
             </div>
             <article className='products'>
-                <GridProductDinner products={sushiMenu} setClient={setClient} newTicket={getNewTicket} />
+                <GridProductDinner products={sushiMenu} setClient={setClient} newTicket={handleProducts} />
 
             </article>
             <article className='ticket'>

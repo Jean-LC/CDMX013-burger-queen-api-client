@@ -4,12 +4,12 @@ import rest from '../images/rest.png'
 
 
 const DinnerTicket = ({name, products}) => {
-    // console.log("soy products desde ticket: ",products.product)
+    console.log("soy products desde ticket: ", products)
     return(
         <div className= "dinner-ticket-container">
                 <p className= "dinner-ticket-p">Client: {name}</p>
-                {products.map((product) => (
-            <div className= "ticket-main" key={product.id}>
+                {products && products.map((product) => (
+            <div className= "ticket-main" key={product.product.id}>
                 <section className="btn-plus-minus-dinner">
                     <img  src={rest} className='rest' alt='rest'></img>
                     <p className="dinner-counter">{product.qty}</p>
