@@ -15,6 +15,7 @@ const Dinner = () => {
     const [productsOrder, setProductsOrder] = useState([])
     const order = [
         {
+            "id": Date.now(),
             "userId": auth.user.id,
             "client": client,
             "products": productsOrder,
@@ -23,11 +24,12 @@ const Dinner = () => {
         }
     ]
 
-    const URL_USERS = '/products'
+    const URL_PRODUCTS = '/products'
+    const URL_ORDERS = '/orders'
 
     const readProducts = async () => {
         try {
-            const data = await axiosGet(auth.accessToken, URL_USERS)
+            const data = await axiosGet(auth.accessToken, URL_PRODUCTS)
             setDataMenu(data.data)
         } catch (err) {
             console.log(err.response.data);
@@ -62,7 +64,7 @@ const Dinner = () => {
 
     const sendOrder = async() => {
         try{
-            const orderAxios = await axiosPost(order, URL_USERS, auth.accessToken);
+            const orderAxios = await axiosPost(order, URL_ORDERS, auth.accessToken);
             console.log(orderAxios)
             setProductsOrder([])
         }catch (err) {
