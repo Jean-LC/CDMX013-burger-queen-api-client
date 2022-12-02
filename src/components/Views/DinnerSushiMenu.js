@@ -62,7 +62,7 @@ const Dinner = () => {
 
     const sendOrder = async() => {
         try{
-            const orderAxios = await axiosPost(order, URL_USERS, auth.accessToken );
+            const orderAxios = await axiosPost(order, URL_USERS, auth.accessToken);
             console.log(orderAxios)
             setProductsOrder([])
         }catch (err) {
