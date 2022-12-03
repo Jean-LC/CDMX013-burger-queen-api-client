@@ -3,7 +3,7 @@ import add from '../images/add.png'
 import rest from '../images/rest.png'
 
 
-const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, send }) => {
+const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, send, show }) => {
     let total = null;
     return (
         <div className="dinner-ticket-container">
@@ -16,7 +16,6 @@ const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, send }) 
                         <img src={add} className='rest' alt='add' onClick={ () => addProduct(product.product)}></img>
                     </section>
                     <p className="dinner-ticket-name">{product.product.name}</p>
-                    <p className="dinner-ticket-price"> ${product.product.price}</p>
                     <p className='total-ticket'> $ {product.product.price * product.qty}</p>
                     <span className='just-total' >{total += product.product.price * product.qty}</span>
                 </div>
@@ -26,7 +25,7 @@ const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, send }) 
             <div>
                 {total && <p className='total-ticket'> Total: $ {total}</p>}
                 <button className='reset-kitchen-button' onClick={reset}>Reset</button>
-                <button className='send-kitchen-button' onClick={ () => send()}>Send to Kitchen</button>
+                <button className='send-kitchen-button' onClick={show}>Send to Kitchen</button>
             </div>
         </div>
     );

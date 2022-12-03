@@ -5,11 +5,14 @@ import HeaderGeneral from '../HeaderGeneral';
 import NavBarDinner from '../NavBarDinner.js';
 import GridProductDinner from '../GridProductDinner.js';
 import DinnerTicket from '../DinnerTicket';
+import ModalTicket from '../ModalTicket';
+
 import { axiosGet, axiosPost } from '../../services/api';
 import { useState, useEffect } from 'react';
 
 const Dinner = () => {
     const { auth } = useAuth()
+    const [show, setShow] = useState(false)
     const [dataMenu, setDataMenu] = useState([])
     const [client, setClient] = useState('')
     const [productsOrder, setProductsOrder] = useState([])
@@ -67,6 +70,7 @@ const Dinner = () => {
             const orderAxios = await axiosPost(order, URL_ORDERS, auth.accessToken);
             console.log(orderAxios)
             setProductsOrder([])
+            setShow(false)
         }catch (err) {
             console.log(err.response.data);
         }
@@ -96,10 +100,17 @@ const Dinner = () => {
                 addProduct={handleProducts} 
                 lessProduct={lessProduct} 
                 reset={() => setProductsOrder([])} 
-                send ={sendOrder}
+                show={() => setShow(true)}
                 />
             </article>
-
+                <ModalTicket id={order[0].id} 
+                nameStaff={auth.user.email} 
+                nameClient={client} 
+                comanda={order}
+                show={show} 
+                onClose={() => setShow(false)}
+                send ={sendOrder}
+                />
         </article>
     )
 }
