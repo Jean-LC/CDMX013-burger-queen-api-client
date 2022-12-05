@@ -15,7 +15,7 @@ const ModalTicket = ({ id, nameStaff, comanda, nameClient, show, onClose, send, 
                         <p>DINNER STAFF: {nameStaff}</p>
                         <p>CLIENT: {nameClient} </p>
                     </div>
-                    {comanda[0].products.map((product) => {
+                    {comanda.products.map((product) => {
                         return (
                             <div key={product.product.id}>
                                 <p className="comanda">

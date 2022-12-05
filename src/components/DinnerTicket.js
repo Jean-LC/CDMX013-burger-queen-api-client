@@ -3,7 +3,7 @@ import add from '../images/add.png'
 import rest from '../images/rest.png'
 
 
-const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, send, show }) => {
+const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, show }) => {
     let total = null;
     return (
         <div>
@@ -27,8 +27,8 @@ const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, send, sh
             </div>
             <div className='dinner-ticket-buttons'>
                 <button className='reset-kitchen-button' onClick={reset}>Reset</button>
-                {total && <p className='total-ticket'> Total: $ {total}</p>}
-                <button className='send-kitchen-button' onClick={() => send}>Send to Kitchen</button>
+                {total && <p className='total-ticket'> Total: $ {total.toFixed(2)}</p>}
+                <button className='send-kitchen-button' onClick={show}>Send to Kitchen</button>
             </div>
         </div>
     );
