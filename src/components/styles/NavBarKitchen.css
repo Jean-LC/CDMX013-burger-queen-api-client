@@ -1,0 +1,32 @@
+.nav-bar-kitchen{
+    color: black;
+
+}
+
+.nav-bar-kitchen-container{
+    margin: 10% 0 0 0;
+    background-color: #a3bbf983;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kitchen-link{
+    width: 41.51vw;
+    height: 8vh;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    color: #313133;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+.active{
+    color: #f6f6f6;;
+    border-bottom: solid 5px white;
+}
