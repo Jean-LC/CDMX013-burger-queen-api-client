@@ -9,7 +9,7 @@ const ModalTicket = ({ id, nameStaff, comanda, nameClient, show, onClose, send, 
         return (
             <div className='modal-ticket' >
                 <div className="modal-ticket-content" >
-                    <div>
+                    <div className= "modal-ticket-paragraph">
                         <p>SUSHI MENU</p>
                         <p>TICKET ID: {id} </p>
                         <p>DINNER STAFF: {nameStaff}</p>
@@ -17,18 +17,22 @@ const ModalTicket = ({ id, nameStaff, comanda, nameClient, show, onClose, send, 
                     </div>
                     {comanda[0].products.map((product) => {
                         return (
-                            <div key={product.product.id}>
+                            <div className="list-modal-ticket" key={product.product.id}>
+                                <div className="modal-ticket-comanda-p">
                                 <p className="comanda">
-                                    {product.qty}
-                                    {product.product.name}
-                                    ${product.qty *product.product.price}</p>
-                                <span>{total += product.qty * product.product.price}</span>
+                                    {product.qty}  {product.product.name} </p>
+                                <p className='price-ticket-modal'>${product.qty *product.product.price}</p>
+                                </div>
+                                <span className="span-ticket">{total += product.qty * product.product.price}</span>
                             </div>
                         )
                     })}
                     <p>Total: ${total}</p>
-                    <button onClick={() => send()}>Send to kitchen</button>
-                    <button onClick={onClose} >Cancel</button>
+                    <div className= "btn-ticket">
+                        <button className= "btn-ticket-send" onClick={() => send()}>Send to kitchen</button>
+                        <button className= "btn-ticket-cancel" onClick={onClose} >Cancel</button>
+                    </div>
+
                 </div >
             </div>
         )
