@@ -1,0 +1,13 @@
+.kitchen-menu-header{
+    grid-column: span 4;
+    grid-row: span 1;
+}
+.nav-bar-kitchen{
+    grid-column: span 4;
+    grid-row: span 1;
+}
+.orders-list{
+    grid-column: span 4;
+    grid-row: span 6;
+    overflow: auto;
+}

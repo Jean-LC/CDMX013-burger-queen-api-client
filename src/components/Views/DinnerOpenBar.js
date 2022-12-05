@@ -17,7 +17,7 @@ const DinnerOpenBar = () => {
             <NavBarDinner />
             </div>
             <img src={suchihappy} alt="sushito-happy" className="suchito-happy"></img>
-            <p>Dinner open bar en construcción</p>
+            <p>Under construction</p>
         
         </article>
     )

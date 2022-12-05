@@ -18,7 +18,7 @@ const DinnerDelivered = () => {
             </div>
 
             <img src={suchihappy} alt="sushito-happy" className="suchito-happy"></img>
-            <p>Dinner delivered en construcción</p>
+            <p>Under construction</p>
         
         </article>
     )
