@@ -1,7 +1,75 @@
 .modal-ticket{
-
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: red;
 }
 
-.comanda{
+.modal-ticket-content{
+    width: 100%;
+    background-color: #313133;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-ticket-paragraph p{
+    margin: 0;   
+    width: 45rem;
+    color: #A3BCF9;
+    font-size: 24px;
+    text-align: start;
+}
+
+.list-modal-ticket {
+    /* display: flex; */
+    color:#399d5a
+}
+.modal-ticket-comanda-p{
+    display: flex;
+    justify-content: space-between;
+}
+.comanda,.price-ticket-modal{
     color: white;
+    margin: 5% 0 0 0;
+    width: 30rem;
+    text-align: left;
+}
+
+.price-ticket-modal{
+    width: 5rem
+}
+.span-ticket{
+    color: #313133;
+    margin: 0;
+    position: fixed;
+    left: 80rem;
+}
+.btn-ticket{
+    display: flex;
+    text-align: justify;
+}
+
+.btn-ticket-send, .btn-ticket-cancel{
+    width: 25vw;
+    height: 4vh;
+    font-size: 24px;
+    border-width: 5px;
+    border-radius: 4px;
+    background-color: #ec928f75;
+    color: #f6f6f6;
+    border: #EC928F 5px solid;
+    margin: 1rem;
+}
+
+.btn-ticket-send{
+    background-color: #399D5A50;
+    border: #399d5a 5px solid;
 }
