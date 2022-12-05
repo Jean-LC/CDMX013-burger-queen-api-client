@@ -1,14 +1,30 @@
 .dinner-ticket-container{
+    grid-column: span 4;
+    grid-row: span 2;
     display: flex;
     flex-flow: column;
+    min-height: 20rem;
 }
-.dinner-ticket-p{
+.dinner-ticket-client{
     color: black;
-    border: solid black 1px;
     width: 241px;
     font-size: 24px;
     align-self: flex-end;
     margin-right: 2%;
+
+}
+.dinner-ticket-ps{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+.dinner-ticket-buttons{
+    grid-column: span 4;
+    grid-row: span 1;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3rem 0 3rem;
+
 }
 .btn-plus-minus-dinner{
     display: flex;
