@@ -12,14 +12,14 @@ function ModalHelp({ show, onClose }) {
                     <img src={logoModal} className="logo-modal" alt="logo"></img>
                 </header>
 
-                <body className="modal-body">
+                <main className="modal-body">
                     <p>
                         If you need help with user / password contact the <span id="admin-help">admin</span>
                     </p>
                     <p>
                         If you are the admin, contact <span id="development-help">development</span>
                     </p>
-                </body>
+                </main>
                 <footer className="modal-footer">
                     <button className="close-help" onClick={onClose}>
                         Close

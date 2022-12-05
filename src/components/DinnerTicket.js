@@ -3,7 +3,7 @@ import add from '../images/add.png'
 import rest from '../images/rest.png'
 
 
-const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, send }) => {
+const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, send, show }) => {
     let total = null;
     return (
         <div>
