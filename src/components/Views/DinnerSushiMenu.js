@@ -16,7 +16,7 @@ const Dinner = () => {
     const [dataMenu, setDataMenu] = useState([])
     const [client, setClient] = useState('')
     const [productsOrder, setProductsOrder] = useState([])
-    const order = [
+    const order = 
         {
             "id": Date.now(),
             "userId": auth.user.id,
@@ -25,7 +25,6 @@ const Dinner = () => {
             "status": 'pending',
             "dataEntry": Date().toString()
         }
-    ]
 
     const URL_PRODUCTS = '/products'
     const URL_ORDERS = '/orders'
@@ -103,7 +102,7 @@ const Dinner = () => {
                 show={() => setShow(true)}
                 />
             </article>
-                <ModalTicket id={order[0].id} 
+                <ModalTicket id={order.id} 
                 nameStaff={auth.user.email} 
                 nameClient={client} 
                 comanda={order}

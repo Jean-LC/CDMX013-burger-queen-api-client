@@ -17,7 +17,7 @@ const DinnerStatus = () => {
             <NavBarDinner />
             </div>
             <img src={suchihappy} alt="sushito-happy" className="suchito-happy"></img>
-            <p>Dinner status en construcción</p>
+            <p>Under construction</p>
         </article>
     )
 }
