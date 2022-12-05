@@ -14,6 +14,7 @@ import DinnerSuchiMenu from "./components/Views/DinnerSushiMenu"
 import DinnerOpenBar from "./components/Views/DinnerOpenBar.js";
 import DinnerStatus from './components/Views/DinnerStatus.js';
 import DinnerDelivered from './components/Views/DinnerDelivered.js';
+import KitchenDelivered from "./components/Views/KitchenDelivered.js";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         </Route>
         <Route element={<RequireAuth allowedRole={'kitchen'} />}>
           <Route path="kitchen" element={<Kitchen />} />
+          <Route path="kitchen-delivered" element={<KitchenDelivered />} />
         </Route>
         <Route element={<RequireAuth allowedRole={'dinner'} />}>
           <Route path="dinner" element={<DinnerSuchiMenu />} />
