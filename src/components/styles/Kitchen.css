@@ -10,4 +10,7 @@
     grid-column: span 4;
     grid-row: span 6;
     overflow: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
