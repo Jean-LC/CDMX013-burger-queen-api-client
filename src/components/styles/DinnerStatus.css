@@ -6,3 +6,9 @@
     grid-column: span 4;
     grid-row: span 1;
 }
+
+.main-dinner-status{
+    grid-column: span 4;
+    grid-row: span 6;
+    overflow: auto;
+}

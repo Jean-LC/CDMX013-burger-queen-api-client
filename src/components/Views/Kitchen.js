@@ -39,7 +39,6 @@ const Kitchen = () => {
         } catch (err) {
             console.log(err)
         }
-
     }
 
     useEffect(() => {
