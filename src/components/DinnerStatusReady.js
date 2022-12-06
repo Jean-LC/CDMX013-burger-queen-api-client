@@ -1,6 +1,5 @@
 
 const DinnerStatusReady = ({ orders, send }) =>{
-    console.log('dinner status ready', orders)
     return(
         <>
         {orders.map((order) => (

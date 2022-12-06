@@ -16,7 +16,6 @@ const DinnerStatus = () => {
         try {
             const data = await axiosGet(auth.accessToken, URL_ORDERS)
             setOrders(data.data)
-            console.log("Soy data desde dinner status", data.data)
         } catch (err) {
             console.log(err)
         }
@@ -28,7 +27,6 @@ const DinnerStatus = () => {
         const index = orders.findIndex((a) => a.id === orderId )
         let changeStatus = orders[index]
         changeStatus.status = 'delivered'
-        console.log(changeStatus);
         try {
             await axiosPatch(URL_ORDERS, orderId, auth.accessToken, changeStatus)
             getOrders()

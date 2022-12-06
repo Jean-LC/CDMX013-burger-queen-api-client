@@ -3,11 +3,33 @@ import '../styles/DinnerDelivered.css'
 import useAuth from '../../hook/useAuth';
 import HeaderGeneral from '../HeaderGeneral';
 import NavBarDinner from '../NavBarDinner.js';
-import suchihappy from '../../images/suchi-happy.png'
+import { axiosGet} from '../../services/api';
+import DinnerStatusDelivered from '../DinnerStatusDelivered';
+import { useEffect, useState } from 'react';
 
 
 const DinnerDelivered = () => {
     const {auth} = useAuth()
+    const [orders, setOrders] = useState([])
+
+    const URL_ORDERS = '/orders'
+
+    const getOrders = async () => {
+        try {
+            const data = await axiosGet(auth.accessToken, URL_ORDERS)
+            setOrders(data.data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const filterDelivered = orders.filter((x) => x.status === "delivered")
+
+
+    useEffect(() => {
+        getOrders()
+    }, [])
+
     return (
         <article className= "grid">
             <header className='dinner-delivered-header'>
@@ -16,10 +38,9 @@ const DinnerDelivered = () => {
             <div className='nav-bar-dinner'>
             <NavBarDinner />
             </div>
-
-            <img src={suchihappy} alt="sushito-happy" className="suchito-happy"></img>
-            <p>Under construction</p>
-        
+            <main className= "main-dinner-delivered">
+                <DinnerStatusDelivered orders={filterDelivered}/>
+            </main>
         </article>
     )
 }
