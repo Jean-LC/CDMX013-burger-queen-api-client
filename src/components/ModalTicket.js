@@ -9,7 +9,7 @@ const ModalTicket = ({ id, nameStaff, comanda, nameClient, show, onClose, send }
             <div className='modal-ticket' >
                 <div className="modal-ticket-content" >
                     <div className= "modal-ticket-paragraph">
-                        <p>SUSHI MENU</p>
+                        { comanda &&<p>MENU: {comanda.products[0].product.type}</p>}
                         <p>TICKET ID: {id} </p>
                         <p>DINNER STAFF: {nameStaff}</p>
                         <p>CLIENT: {nameClient} </p>
