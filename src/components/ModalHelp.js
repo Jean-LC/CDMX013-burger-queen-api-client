@@ -11,7 +11,6 @@ function ModalHelp({ show, onClose }) {
                 <header className="modal-header">
                     <img src={logoModal} className="logo-modal" alt="logo"></img>
                 </header>
-
                 <main className="modal-body">
                     <p>
                         If you need help with user / password contact the <span id="admin-help">admin</span>

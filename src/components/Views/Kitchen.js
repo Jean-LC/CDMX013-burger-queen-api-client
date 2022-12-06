@@ -20,8 +20,6 @@ const Kitchen = () => {
     const getOrders = async () => {
         try {
             const data = await axiosGet(auth.accessToken, URL_ORDERS)
-            console.log(data.data.orders, 'kitchen')
-            console.log(data, 'kitchen soy data')
             setOrders(data.data)
         } catch (err) {
             console.log(err)
@@ -33,16 +31,14 @@ const Kitchen = () => {
     const patchOrder = async (orderId) => {
         const index = orders.findIndex((a) => a.id === orderId )
         let changeStatus = orders[index]
-        changeStatus.status = 'delivered'
+        changeStatus.status = 'ready'
         console.log(changeStatus);
         try {
             await axiosPatch(URL_ORDERS, orderId, auth.accessToken, changeStatus)
             getOrders()
-            console.log('aceptado')
         } catch (err) {
             console.log(err)
         }
-
     }
 
     useEffect(() => {

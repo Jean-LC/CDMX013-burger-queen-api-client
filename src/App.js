@@ -24,7 +24,6 @@ export default function App() {
         <Route path="/" element={<Login />} />
         {/* protected routes */}
         <Route element={<RequireAuth allowedRole={'admin'}/>}>
-            {/* <Route path="admin" element={<HeaderGeneral />} /> */}
             <Route path="admin" element={<Admin />} />
             <Route path="product-management" element={<ProductAdmin />} />
         </Route>
@@ -38,7 +37,6 @@ export default function App() {
           <Route path="dinner-status" element={<DinnerStatus />} />
           <Route path="dinner-delivered" element={<DinnerDelivered />} />
         </Route>
-
         {/* catch all */}
         <Route path="*" element={<Missing />} />
       </Route>

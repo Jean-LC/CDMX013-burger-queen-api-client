@@ -16,15 +16,15 @@ const Dinner = () => {
     const [dataMenu, setDataMenu] = useState([])
     const [client, setClient] = useState('')
     const [productsOrder, setProductsOrder] = useState([])
-    const order = 
-        {
-            "id": Date.now(),
-            "userId": auth.user.id,
-            "client": client,
-            "products": productsOrder,
-            "status": 'pending',
-            "dataEntry": Date().toString()
-        }
+    const order =
+    {
+        "id": Date.now(),
+        "userId": auth.user.id,
+        "client": client,
+        "products": productsOrder,
+        "status": 'pending',
+        "dataEntry": Date().toString()
+    }
 
     const URL_PRODUCTS = '/products'
     const URL_ORDERS = '/orders'
@@ -64,15 +64,21 @@ const Dinner = () => {
         }
     }
 
-    const sendOrder = async() => {
-        try{
+    const sendOrder = async () => {
+        try {
             const orderAxios = await axiosPost(order, URL_ORDERS, auth.accessToken);
-            console.log(orderAxios)
+            setClient('')
             setProductsOrder([])
+            document.getElementById('client').value = ''
             setShow(false)
-        }catch (err) {
+        } catch (err) {
             console.log(err.response.data);
         }
+    }
+    const reset = () =>{
+        setProductsOrder([])
+        setClient('')
+        document.getElementById('client').value = ''
     }
 
     useEffect(() => {
@@ -88,28 +94,28 @@ const Dinner = () => {
                 <NavBarDinner />
             </div>
             <article className='products'>
-                <GridProductDinner products={sushiMenu} 
-                setClient={setClient} 
-                newTicket={handleProducts} />
+                <GridProductDinner products={sushiMenu}
+                    setClient={setClient}
+                    newTicket={handleProducts} />
 
             </article>
             <article className='ticket'>
-                <DinnerTicket name={client} 
-                products={productsOrder} 
-                addProduct={handleProducts} 
-                lessProduct={lessProduct} 
-                reset={() => setProductsOrder([])} 
-                show={() => setShow(true)}
+                <DinnerTicket name={client}
+                    products={productsOrder}
+                    addProduct={handleProducts}
+                    lessProduct={lessProduct}
+                    reset={reset}
+                    show={() => setShow(true)}
                 />
             </article>
-                <ModalTicket id={order.id} 
-                nameStaff={auth.user.email} 
-                nameClient={client} 
+            <ModalTicket id={order.id}
+                nameStaff={auth.user.email}
+                nameClient={client}
                 comanda={order}
-                show={show} 
+                show={show}
                 onClose={() => setShow(false)}
-                send ={sendOrder}
-                />
+                send={sendOrder}
+            />
         </article>
     )
 }

@@ -7,7 +7,7 @@ const RequireAuth = ({allowedRole}) => {
     //userLogged.user.role === "admin"
     return (
     //?. significa optional chaining que es similar a . cuando tienes un obj
-    //Aquí pregunta sí auth es true (esta autenticado?), después entra a user y al boolean
+    //Aqui pregunta si auth es true (esta autenticado?), despues entra a user y al boolean
     auth?.user?.role.includes(allowedRole)
     ? <Outlet />
     //state nos permite navegar de regreso.

@@ -1,7 +1,6 @@
 import './styles/ModalTicket.css'
 
-const ModalTicket = ({ id, nameStaff, comanda, nameClient, show, onClose, send, reset }) => {
-    // console.log("soy desde modal tickt", comanda[0])
+const ModalTicket = ({ id, nameStaff, comanda, nameClient, show, onClose, send }) => {
     let total = null
     if (!show) {
         return null
@@ -37,7 +36,6 @@ const ModalTicket = ({ id, nameStaff, comanda, nameClient, show, onClose, send, 
             </div>
         )
     }
-
 }
 
 export default ModalTicket;

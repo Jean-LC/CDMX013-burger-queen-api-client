@@ -1,5 +1,5 @@
 import axios from "axios";
-//Notación para usar como constante Rutas
+//Notacion para usar como constante Rutas
 const BASE_URL = 'http://localhost:8080';
 
 export const axiosPost = (body, url, token) => {

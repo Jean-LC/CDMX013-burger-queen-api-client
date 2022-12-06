@@ -2,11 +2,9 @@
     color: black;
 }
 .nav-bar-dinner-container{
-    
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .dinner-link{
@@ -30,7 +28,6 @@
 .status-delivered{
     background-color: #878727; 
 }
-
 
 .active{
     color: #f6f6f6;;
