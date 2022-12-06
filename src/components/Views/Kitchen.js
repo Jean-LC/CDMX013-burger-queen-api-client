@@ -55,9 +55,7 @@ const Kitchen = () => {
             </div>
             <main className='orders-list'>
                 <OrderList orders={pending} send={patchOrder}/>
-
             </main>
-
         </section>
     )
 }
