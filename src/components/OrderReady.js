@@ -1,10 +1,9 @@
-import './styles/OrderList.css'
 
-const OrderList = ({orders, send}) =>{
+const OrderReady = ({orders}) =>{
     return(
         <>
-            {orders && orders.map((order) => 
-                <section key={order.id} className='section-order'>
+        {orders && orders.map((order) => 
+                <section key={order.id} className='section-order section-ready-order'>
                     <div className='div-order'>
                         <p className='paragraph-order'>Id: {order.id}</p>
                         <p className='paragraph-order'>Client: {order.client}</p>
@@ -20,12 +19,12 @@ const OrderList = ({orders, send}) =>{
                         )
                     }
                     </div>
-                    <button onClick={()=>send(order.id)} className='button-ready'>Ready for Dinner</button>
                 </section>
             )
             }
         </>
+
     );
 }
 
-export default OrderList;
+export default OrderReady;

@@ -8,6 +8,9 @@
     padding: 3rem;
     border-radius: 15px;
 }
+.section-ready-order{
+    border: 7px solid #399D5A;
+}
 
 .div-order {
     display: flex;
