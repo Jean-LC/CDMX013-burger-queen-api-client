@@ -39,7 +39,7 @@ const DinnerDelivered = () => {
             <NavBarDinner />
             </div>
             <main className= "main-dinner-delivered">
-                <DinnerStatusDelivered orders={filterDelivered}/>
+                <DinnerStatusDelivered orders={filterDelivered.reverse()}/>
             </main>
         </article>
     )
