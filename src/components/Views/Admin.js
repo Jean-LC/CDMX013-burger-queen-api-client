@@ -72,7 +72,6 @@ const Admin = () => {
                 email: '',
                 role: ''
             })
-            console.log("soy ediiiiiiit", editPatch)
 
         }catch (err) {
             setErrorMessage(err.response.data)

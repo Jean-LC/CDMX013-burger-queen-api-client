@@ -26,7 +26,7 @@ const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, show }) 
                 ))}
             </div>
             <div className='dinner-ticket-buttons'>
-                <button className='reset-kitchen-button' onClick={reset}>Reset</button>
+                <button className='reset-kitchen-button' onClick={()=>reset()}>Reset</button>
                 {total && <p className='total-ticket'> Total: $ {total.toFixed(2)}</p>}
                 <button className='send-kitchen-button' onClick={show}>Send to Kitchen</button>
             </div>
