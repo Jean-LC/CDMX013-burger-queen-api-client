@@ -20,13 +20,13 @@ const ModalTicket = ({ id, nameStaff, comanda, nameClient, show, onClose, send }
                                 <div className="modal-ticket-comanda-p">
                                 <p className="comanda">
                                     {product.qty}  {product.product.name} </p>
-                                <p className='price-ticket-modal'>${product.qty *product.product.price}</p>
+                                <p className='price-ticket-modal'>${(product.qty *product.product.price).toFixed(2)}</p>
                                 </div>
                                 <span className="span-ticket">{total += product.qty * product.product.price}</span>
                             </div>
                         )
                     })}
-                    <p>Total: ${total}</p>
+                    <p>Total: ${total.toFixed(2)}</p>
                     <div className= "btn-ticket">
                         <button className= "btn-ticket-send" onClick={() => send()}>Send to kitchen</button>
                         <button className= "btn-ticket-cancel" onClick={onClose} >Cancel</button>
