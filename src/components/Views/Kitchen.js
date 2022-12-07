@@ -11,9 +11,6 @@ import { useEffect, useState } from 'react';
 const Kitchen = () => {
     const { auth } = useAuth()
     const [orders, setOrders] = useState([])
-/*     const status = {
-        status:'pending'
-    } */
 
     const URL_ORDERS= '/orders'
     
@@ -32,7 +29,7 @@ const Kitchen = () => {
         const index = orders.findIndex((a) => a.id === orderId )
         let changeStatus = orders[index]
         changeStatus.status = 'ready'
-        console.log(changeStatus);
+
         try {
             await axiosPatch(URL_ORDERS, orderId, auth.accessToken, changeStatus)
             getOrders()
@@ -40,6 +37,11 @@ const Kitchen = () => {
             console.log(err)
         }
     }
+
+/*     const timeOfOrder = () =>{
+        orders.dateEntry
+    } */
+
 
     useEffect(() => {
         getOrders()
