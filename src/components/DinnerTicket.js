@@ -19,7 +19,7 @@ const DinnerTicket = ({ name, products, addProduct, lessProduct, reset, show }) 
                         <div className='dinner-ticket-ps'>
                             <p className="dinner-ticket-name">{product.product.name}</p>
                             <p className="dinner-ticket-price"> ${product.product.price}</p>
-                            <p className='total-ticket'> $ {product.product.price * product.qty}</p>
+                            <p className='total-ticket'> $ {(product.product.price * product.qty).toFixed(2)}</p>
                         </div>
                         <span className='just-total' >{total += product.product.price * product.qty}</span>
                     </div>

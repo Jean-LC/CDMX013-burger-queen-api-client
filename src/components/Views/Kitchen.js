@@ -11,9 +11,6 @@ import { useEffect, useState } from 'react';
 const Kitchen = () => {
     const { auth } = useAuth()
     const [orders, setOrders] = useState([])
-/*     const status = {
-        status:'pending'
-    } */
 
     const URL_ORDERS= '/orders'
     
@@ -41,6 +38,11 @@ const Kitchen = () => {
             console.log(err)
         }
     }
+
+/*     const timeOfOrder = () =>{
+        orders.dateEntry
+    } */
+
 
     useEffect(() => {
         getOrders()

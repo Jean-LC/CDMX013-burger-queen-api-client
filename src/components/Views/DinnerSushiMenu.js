@@ -11,6 +11,7 @@ import { axiosGet, axiosPost } from '../../services/api';
 import { useState, useEffect } from 'react';
 
 const Dinner = () => {
+    console.log(Date())
     const { auth } = useAuth()
     const [show, setShow] = useState(false)
     const [dataMenu, setDataMenu] = useState([])
