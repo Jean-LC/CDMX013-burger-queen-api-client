@@ -6,9 +6,11 @@ const OrderList = ({orders, send}) =>{
             {orders && orders.map((order) => 
                 <section key={order.id} className='section-order'>
                     <div className='div-order'>
+                        <p className='paragraph-order'>Hour: {(order.dataEntry).split(' ')[4]}</p>
                         <p className='paragraph-order'>Id: {order.id}</p>
                         <p className='paragraph-order'>Client: {order.client}</p>
                         <p className='paragraph-order'>{order.products[0].product.type}</p>
+
                     </div>
                     <div>
                     {
