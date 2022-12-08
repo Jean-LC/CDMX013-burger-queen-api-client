@@ -29,7 +29,8 @@ const Kitchen = () => {
         const index = orders.findIndex((a) => a.id === orderId )
         let changeStatus = orders[index]
         changeStatus.status = 'ready'
-
+        changeStatus.deliveredEntry = Date().toString()
+        console.log(changeStatus);
         try {
             await axiosPatch(URL_ORDERS, orderId, auth.accessToken, changeStatus)
             getOrders()

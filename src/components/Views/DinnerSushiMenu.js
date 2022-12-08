@@ -24,7 +24,8 @@ const Dinner = () => {
         "client": client,
         "products": productsOrder,
         "status": 'pending',
-        "dataEntry": Date().toString()
+        "dataEntry": Date().toString(),
+        "deliveredEntry": ""
     }
 
     const URL_PRODUCTS = '/products'
