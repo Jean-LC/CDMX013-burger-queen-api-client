@@ -1,6 +1,6 @@
 import axios from "axios";
 //Notacion para usar como constante Rutas
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://burger-queen-api-mock.onrender.com';
 
 export const axiosPost = (body, url, token) => {
     return axios.post(`${BASE_URL}${url}`, body,{
