@@ -9,7 +9,6 @@ const Product = ({products, handleDelete, handleProduct}) => {
     const [activeId, setActiveId] = useState('')
 
     const fnDelete = () => {
-        console.log(activeId)
         handleDelete(activeId)
         setShow(false)
     }

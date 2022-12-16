@@ -9,7 +9,6 @@ const Users = ({ users, handleDelete, handleUser }) => {
     const [activeId, setActiveId] = useState('')
 
     const fnDelete = () => {
-        console.log(activeId)
         handleDelete(activeId)
         setShow(false)
     }
